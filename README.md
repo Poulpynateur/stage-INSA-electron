@@ -4,9 +4,9 @@ Based on [ELECTRON](https://electronjs.org/).
 
 ### Prerequisites
 
-ELECTRON is based on Node.js, in order to run electron app you need to [install Node.js](https://nodejs.org/en/download/)
+ELECTRON is based on Node.js, in order to run an electron app you need to [install Node.js](https://nodejs.org/en/download/)
 
-To check that Node.js and npm install :
+To check that Node.js and npm are install :
 ```
 node -v
 npm -v
