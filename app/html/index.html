@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>INSA</title>
+	<link rel="stylesheet" href="../../ressources/Vendor/bootstrap.min.css" />
+</head>
+
+<body>
+	<header class="container">
+		<h1 class="my-4">Scrapping data from scientific blogs and articles’s RSS feed</h1>
+		<i class="fas fa-check"></i>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="RSS_feed_origin">RSS feed origin</label>
+			</div>
+			<select class="custom-select" id="RSS_feed_origin">
+				<option value="" selected>Choose...</option>
+				<option value="https://iopscience.iop.org/1748-3190/?rss=1">IOPSCIENCE : Bioinspiration & Biomimetics (BUY)</option>
+				<option value="http://jeb.biologists.org/rss/open.xml">The Company of Biologists : Journal of Experimental Biology</option>
+				<option value="https://academic.oup.com/rss/site_5304/3170.xml">OXFORD ACADEMIC : Journal of Experimental Botany</option>
+			</select>
+		</div>
+		<hr class="my-4">
+	</header>
+	<main id="RSS_content" class="container px-5">
+
+	</main>
+<script>let $ = require('jquery');</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script>require('../index.js')</script>
+</body>
+
+</html>
