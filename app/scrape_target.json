@@ -1,0 +1,34 @@
+{
+    "iopscience.iop": {
+        "query": {
+            "article": "div.art-list-item.reveal-container",
+            "title": "h2 a",
+            "abstract": "div.abstract p",
+            "next_page": "a.index-item.index-item-clear[href^='/collection']",
+            "total_articles": "#wd-iop-col-2nd-controls span"
+        },
+        "info": {
+            "domain_url": "https://iopscience.iop.org",
+            "articles_url": "/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS",
+            "article_per_page": 50,
+            "page_number": 1
+        }
+    },
+    
+    "jeb.biologists": {
+        "query": {
+            "title": "h1",
+            "abstract": "div.abstract p",
+            "next_page": "a"
+        },
+        "articles_url": "http://jeb.biologists.org/search/"
+    },
+    "academic.oup": {
+        "query": {
+            "title": "h1",
+            "abstract": "div.abstract p",
+            "next_page": "a"
+        },
+        "articles_url": "https://academic.oup.com/jxb/search-results?page=1&f_ContentType=Journal+Article&f_ArticleTypeDisplayName=Research+Article&fl_SiteID=5304"
+    }
+}

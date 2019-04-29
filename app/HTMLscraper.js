@@ -1,5 +1,17 @@
 var cheerio = require('cheerio');
 
+/**
+ * Hold everything about the different site
+ * Including :
+ * - query : to scrape specific data from the site
+ * - info : to navigate on the site
+ * - articles[] that old every article that have been process
+ */
+var scrape_target = require('./scrape_target.json');
+
+var target = {};
+var articles = [];
+
 module.exports = {
     fromOption: function (option_object) {
         var name = option_object.attr('name');
@@ -68,36 +80,19 @@ function initiScrape(_target) {
 function scrape() {
     //Refresh the DOM
     $('#scrapping_in_process').removeClass('d-none');
-   
-    var req = new XMLHttpRequest();
-    req.onreadystatechange = function (event) {
-        if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status === 200) {
-                getArticlesOfPage(this.responseText);
-
-                console.log(target.articles.length);
-
-                //Refresh the DOM
-                $('#progress_nbr_article').text(target.articles.length + ' / ' + target.info.total_articles + ' articles load');
-                var progress_percent = target.articles.length*100/target.info.total_articles;
-                $('#progress_bar_article').attr('aria-valuenow', progress_percent).css('width', progress_percent + '%');
-            }
-            else
-                console.error("Response status: %d (%s)", this.status, this.statusText);
-        }
-    };
 
     do {
-        var url = target.info.domain_url;
-        url += (target.info.articles_url)
-            .replace(/\*article_per_page\*/g,target.info.article_per_page)
-            .replace(/\*page_number\*/g,target.info.page_number);
-        
-        req.open('GET', url, true);
-        req.send(null);
+        requestToUrl(getUrl(target.info), function(html) {
+            getArticlesOfPage(html);
+
+            //Refresh the DOM : progress bar
+            $('#progress_nbr_article').text(articles.length + ' / ' + target.info.total_articles + ' articles load');
+            var progress_percent = articles.length*100/target.info.total_articles;
+            $('#progress_bar_article').attr('aria-valuenow', progress_percent).css('width', progress_percent + '%');
+        });
+        target.info.page_number += 1;
     }
-    while(false);
-    //while(target.info.article_per_page * target.info.page_number < target.info.total_articles);
+    while(target.info.article_per_page * target.info.page_number < target.info.total_articles);
 }
 
 /**
@@ -118,53 +113,10 @@ function getArticlesOfPage(html) {
 
         var abstract = content(this).find('div.article-text.view-text-small p').text();
 
-        target.articles.push({
+        articles.push({
             'title': title,
             'link': link,
             'abstract': abstract
         });
     });
 }
-
-/**
- * Hold everything about the different site
- * Including :
- * - query : to scrape specific data from the site
- * - info : to navigate on the site
- * - articles[] that old every article that have been process
- */
-var target = {};
-var scrape_target = {
-    "iopscience.iop": {
-        query: {
-            article: 'div.art-list-item.reveal-container',
-            title: 'h2 a',
-            abstract: 'div.abstract p',
-            next_page: 'a.index-item.index-item-clear[href^="/collection"]',
-            total_articles: '#wd-iop-col-2nd-controls span'
-        },
-        info: {
-            domain_url: 'https://iopscience.iop.org',
-            articles_url: '/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS',
-            article_per_page: 50,
-            page_number: 1
-        },
-        articles: []
-    },
-    "jeb.biologists": {
-        query: {
-            title: 'h1',
-            abstract: 'div.abstract p',
-            next_page: 'a'
-        },
-        articles_url: 'http://jeb.biologists.org/search/'
-    },
-    "academic.oup": {
-        query: {
-            title: 'h1',
-            abstract: 'div.abstract p',
-            next_page: 'a'
-        },
-        articles_url: 'https://academic.oup.com/jxb/search-results?page=1&f_ContentType=Journal+Article&f_ArticleTypeDisplayName=Research+Article&fl_SiteID=5304'
-    }
-};
