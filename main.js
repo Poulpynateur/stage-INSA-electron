@@ -27,8 +27,10 @@ app.on('window-all-closed', () => {
 });
 
 /* Communication with renderer (icp) */
+/**
+ * Keep it on side
+ */
 ipcMain.on('create-popup-htmlextractor', (event, arg) => {
-
     let htmlextractor = new BrowserWindow({
         width: 800,
         height: 600,
