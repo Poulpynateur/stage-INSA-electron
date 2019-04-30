@@ -1,0 +1,18 @@
+{
+    "iopscience.iop": {
+        "full_name": "IOPSCIENCE : Bioinspiration & Biomimetics",
+        "query": {
+            "article": "div.art-list-item.reveal-container",
+            "link": "h2 a",
+            "title": "h2 a",
+            "abstract": "div.article-text.view-text-small p",
+            "total_articles": "#wd-iop-col-2nd-controls span"
+        },
+        "info": {
+            "domain_url": "https://iopscience.iop.org",
+            "articles_url": "/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS",
+            "article_per_page": 50,
+            "page_number": 1
+        }
+    }
+}
