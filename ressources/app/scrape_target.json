@@ -1,18 +1,1 @@
-{
-    "iopscience.iop": {
-        "full_name": "IOPSCIENCE : Bioinspiration & Biomimetics",
-        "query": {
-            "article": "div.art-list-item.reveal-container",
-            "link": "h2 a",
-            "title": "h2 a",
-            "abstract": "div.article-text.view-text-small p",
-            "total_articles": "#wd-iop-col-2nd-controls span"
-        },
-        "info": {
-            "domain_url": "https://iopscience.iop.org",
-            "articles_url": "/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS",
-            "article_per_page": 50,
-            "page_number": 1
-        }
-    }
-}
+{"iopscience.iop":{"full_name":"IOPSCIENCE : Bioinspiration & Biomimetics","query":{"article":"html body#back-to-top-target div.page-body div.wrapper.grid-2-col.db-showgrid.tb-showgrid.cf main div.db1.tb1 div.art-list div.art-list-item.reveal-container.reveal-closed.reveal-plus-icon div.art-list-item-body","link":" h2.art-list-item-title a","title":" h2.art-list-item-title a","abstract":" div.reveal-content div.article-text.view-text-small p","total_articles":"html body#back-to-top-target div.page-body div.wrapper.grid-2-col.db-showgrid.tb-showgrid.cf main div.db1.tb1 div#wd-iop-col-2nd-controls.cf.float-switch.fs-col-key.mb-1 span.small.pt-025.init-right"},"info":{"domain_url":"https://iopscience.iop.org","articles_url":"/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS","article_per_page":50,"page_number":1}},"academic.oup.com":{"full_name":"JXB","query":{"article":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div#searchResultsPage div.widget.widget-SolrSearch.widget-instance-OUP_SearchResults div.page-column-wrap div#ContentColumn.page-column.page-column--center.sr-module.al-article-list-group.module-listview div.sr-list.al-article-box.al-normal.clearfix","link":" h4.sri-title.customLink.al-title a.article-link","title":" h4.sri-title.customLink.al-title a.article-link","total_articles":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div#searchResultsPage div.widget.widget-SolrSearch.widget-instance-OUP_SearchResults div.page-column-wrap div#ContentColumn.page-column.page-column--center.sr-module.al-article-list-group.module-listview div.sr-statistics","abstract_article_page":true,"abstract":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div.page-column-wrap div#ContentColumn.page-column.page-column--center div.content-inner-wrap div.article-body div#ContentTab.content.active div.widget.widget-ArticleFulltext.widget-instance-OUP_Abstract_Article_FullText_Widget div.module-widget div.widget-items section.abstract p"},"info":{"domain_url":"https://academic.oup.com","articles_url":"/jxb/search-results?page=*page_number*&allJournals=1&f_ContentType=Journal+Article&f_ArticleTypeDisplayName=Research+Article&fl_SiteID=5304","article_per_page":20,"page_number":1}}}

@@ -12,7 +12,7 @@ var scrape_target = require('../ressources/app/scrape_target.json');
 
 var target = {};
 var articles = [];
-var name;
+var name = '';
 
 module.exports = {
     fromOption: function (option_object) {
@@ -39,13 +39,13 @@ module.exports = {
             var total = content(target.query.total_articles).text().match(/(\d+)(?!.*\d)/g);
             target.info.total_articles = parseInt(total[0]);
 
-            var title = content(target.query.article).find(target.query.title).first().text();
-            var link = content(target.query.article).find(target.query.link).attr('href');
+            var title = content(target.query.title).first().text();
+            var link = content(target.query.link).first().attr('href');
 
             if(target.query.abstract_article_page) {
                 requestToUrl(target.info.domain_url + link, function(html) {
                     var content = cheerio.load(html);
-                    var abstract = content().find(target.query.abstract).text();
+                    var abstract = content(target.query.abstract).text();
     
                     $('#scrapping_test_abstract').text(abstract);
                 }, function(status, msg) {
@@ -53,10 +53,9 @@ module.exports = {
                 });
             }
             else {
-                var abstract = content(target.query.article).find(target.query.abstract).first().text();
+                var abstract = content(target.query.abstract).first().text();
                 $('#scrapping_test_abstract').text(abstract);
             }
-
 
             //Refresh the DOM
             $('#scrapping_test_url').text(getUrl(target.info));
@@ -95,7 +94,7 @@ function requestToUrl(url, success, error) {
     req.onreadystatechange = function (event) {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
-                success(this.responseText, actual_article);
+                success(this.responseText);
             }
             else {
                 error(this.status, this.statusText);
@@ -111,7 +110,7 @@ function requestToUrl(url, success, error) {
  * Used to get the total number of articles
  * Make sure the site is accessible
  */
-function initiScrape(_target, test) {
+function initiScrape(_target) {
 
     target = _target;
     //Refresh the DOM
@@ -120,15 +119,17 @@ function initiScrape(_target, test) {
 
     requestToUrl(getUrl(target.info), function(html) {
         var content = cheerio.load(html);
-
+        
         //Getting total number of article
         var total = content(target.query.total_articles).text().match(/(\d+)(?!.*\d)/g);
         target.info.total_articles = parseInt(total[0]);
+        target.info.total_articles = 40;
 
         //Refresh the DOM
         $('#scrapping_status_total').html('<h5><b>' + target.info.total_articles + '</b> articles founds </h5>');
 
         scrape(target);
+
     }, function(status, msg) {
         console.error("Oupsy, error occured: %d (%s)", status, msg);
     });
@@ -138,19 +139,19 @@ function scrape() {
     //Refresh the DOM
     $('#scrapping_in_process').removeClass('d-none');
 
-    while((target.info.article_per_page * (target.info.page_number - 1)) <= target.info.total_articles) {
+    while((target.info.article_per_page * (target.info.page_number - 1)) < target.info.total_articles) {
         requestToUrl(getUrl(target.info), function(html) {
             getArticlesOfPage(html, function() {
+                //Refresh the DOM : progress bar
+                $('#progress_nbr_article').text(articles.length + ' / ' + target.info.total_articles + ' articles load');
+                var progress_percent = articles.length*100/target.info.total_articles;
+                $('#progress_bar_article').attr('aria-valuenow', progress_percent).css('width', progress_percent + '%');
+
                 if(articles.length >= target.info.total_articles)
                     scrappingDone();
             });
-
-            //Refresh the DOM : progress bar
-            $('#progress_nbr_article').text(articles.length + ' / ' + target.info.total_articles + ' articles load');
-            var progress_percent = articles.length*100/target.info.total_articles;
-            $('#progress_bar_article').attr('aria-valuenow', progress_percent).css('width', progress_percent + '%');
         }, function(status, msg) {
-            console.error("Oupsy, error occured: %d (%s)", status, msg);
+            console.error("Oopsy, error occured: %d (%s)", status, msg);
         });
 
         target.info.page_number += 1;
@@ -158,38 +159,41 @@ function scrape() {
 }
 
 /**
- * Load articles from html content
+ * Load articles from html content ()
  */
 function getArticlesOfPage(html, callback) {
     var content = cheerio.load(html);
 
-    //Get info for each article
-    content(target.query.article).each(function(element) {
+    content(target.query.article).each(function() {
+        var link = content(this).find(target.query.link).attr('href');
         var title = content(this).find(target.query.title).text();
 
-        var link = content(this).find(target.query.link).attr('href');
-
         if(target.query.abstract_article_page) {
-            articles.push({
-                'title': title,
-                'link': target.info.domain_url + link,
-            });
-            requestToUrl(target.info.domain_url + link, function(html, actual_article) {
+            requestToUrl(target.info.domain_url + link, function(html) {
                 var content = cheerio.load(html);
-                var abstract = content().find(target.query.abstract).text();
+                var abstract = content(target.query.abstract).text();
 
-                articles[actual_article].abstract = abstract;
+                articles.push({
+                    'title': title,
+                    'link': target.info.domain_url + link,
+                    'abstract': abstract
+                });
+
+                callback();
             }, function(status, msg) {
-                console.error("Oupsy, error occured: %d (%s)", status, msg);
+                console.error("Oopsy, error occured: %d (%s)", status, msg);
             });
         }
         else {
-            var abstract = content(this).find(target.query.abstract).text();
+            var abstract = content(this).find(target.query.article.abstract).text();
+
             articles.push({
                 'title': title,
                 'link': target.info.domain_url + link,
                 'abstract': abstract
             });
+
+            callback();
         }
     });
 }
