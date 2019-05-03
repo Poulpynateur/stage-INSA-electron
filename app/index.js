@@ -1,18 +1,25 @@
 const {shell, ipcRenderer} = require('electron');
+const fs = require('fs');
 
-var rss = require('./RSSreader.js');
+var scrape = require('./HTMLscraper.js');
+var scrape_source = require('../ressources/app/scrape_target.json');
 
-$('#RSS_feed_origin').change(function() {
-	var url = $(this).find(":selected").val();
-	if(url)
-		rss.objectFromUrl(url);
+/**
+ * Generate option from json
+ */
+$(document).ready(function() {
+	var select = $('#target_site');
+	Object.keys(scrape_source).forEach(function(source) {
+		var site = scrape_source[source];
+		var option = $(document.createElement('option')).attr({"name": source, "value": site.info.domain_url}).text(site.full_name);
+		select.append(option);
+	});
 });
 
-$(document).on('click', 'a[href^="http"]', function(event) {
-    event.preventDefault();
-    shell.openExternal(this.href);
+$(document).on('click', '#scrape_articles', function(event) {
+	scrape.fromOption($('#target_site').find(":selected"));
 });
 
-$(document).on('click', 'button[data-target]',  function(event) {
-	ipcRenderer.send('create-popup-htmlextractor', $(this).data('target'));
+$(document).on('click', '#navigate_to_site', function(event) {
+	shell.openExternal($('#target_site').find(":selected").val());
 });

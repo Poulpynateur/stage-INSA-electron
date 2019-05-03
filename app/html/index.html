@@ -9,28 +9,60 @@
 
 <body>
 	<header class="container">
-		<h1 class="my-4">Scrapping data from scientific blogs and articles’s RSS feed</h1>
-		<i class="fas fa-check"></i>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="RSS_feed_origin">RSS feed origin</label>
-			</div>
-			<select class="custom-select" id="RSS_feed_origin">
-				<option value="" selected>Choose...</option>
-				<option value="https://iopscience.iop.org/1748-3190/?rss=1">IOPSCIENCE : Bioinspiration & Biomimetics (BUY)</option>
-				<option value="http://jeb.biologists.org/rss/open.xml">The Company of Biologists : Journal of Experimental Biology</option>
-				<option value="https://academic.oup.com/rss/site_5304/3170.xml">OXFORD ACADEMIC : Journal of Experimental Botany</option>
-			</select>
-		</div>
+		<h1 class="my-4 text-center">Scrapping data from scientific blogs and articles’s RSS feed</h1>
+
 		<hr class="my-4">
+		<div class="row">
+			<div class="col-12 col-lg-8 input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="RSS_feed_origin">Articles origin</label>
+				</div>
+				<select class="custom-select" id="target_site">
+					<option value="" selected>Choose...</option>
+				</select>
+			</div>
+			<div class="col-6 col-lg-2">
+				<button id="navigate_to_site" class="w-100 btn btn-outline-primary">Go to site</button>
+			</div>
+			<div class="col-6 col-lg-2">
+				<button id="scrape_articles" class="w-100 btn btn-primary">Scrap articles</button>
+			</div>
+		</div>
 	</header>
-	<main id="RSS_content" class="container px-5">
 
+	<main class="container d-none">
+		<hr class="my-4">
+		<div class="row">
+			<div class="col-8">Scrapping from <h5 id="site_name" class="d-inline-block"></h5></div>
+			<div class="col-4">
+				<div id="scrapping_status_total" class="text-right">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="scrapping_in_process" class="d-none">
+			<div class="my-3">
+				<div class="progress">
+					<div id="progress_bar_article" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+			<div class="row text-center mb-2">
+				<span id="progress_nbr_article" class="lead w-100"></span>
+			</div>
+		</div>
+
+		<div id="scrapping_done" class="d-none">
+			<hr class="my-4">
+			<h4 class="text-center text-success">Done !</h4>
+		</div>
 	</main>
-<script>let $ = require('jquery');</script>
-<script>require('popper.js');</script>
-<script>require('bootstrap');</script>
-<script>require('../index.js')</script>
-</body>
 
+	<script>let $ = require('jquery');</script>
+	<script>require('popper.js');</script>
+	<script>require('bootstrap');</script>
+	<script>require('../index.js')</script>
+</body>
 </html>
