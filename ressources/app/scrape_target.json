@@ -1,1 +1,170 @@
-{"iopscience.iop":{"full_name":"IOPSCIENCE : Bioinspiration & Biomimetics","query":{"article":"html body#back-to-top-target div.page-body div.wrapper.grid-2-col.db-showgrid.tb-showgrid.cf main div.db1.tb1 div.art-list div.art-list-item.reveal-container.reveal-closed.reveal-plus-icon div.art-list-item-body","link":" h2.art-list-item-title a","title":" h2.art-list-item-title a","abstract":" div.reveal-content div.article-text.view-text-small p","total_articles":"html body#back-to-top-target div.page-body div.wrapper.grid-2-col.db-showgrid.tb-showgrid.cf main div.db1.tb1 div#wd-iop-col-2nd-controls.cf.float-switch.fs-col-key.mb-1 span.small.pt-025.init-right"},"info":{"domain_url":"https://iopscience.iop.org","articles_url":"/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS","article_per_page":50,"page_number":1}},"academic.oup.com":{"full_name":"JXB","query":{"article":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div#searchResultsPage div.widget.widget-SolrSearch.widget-instance-OUP_SearchResults div.page-column-wrap div#ContentColumn.page-column.page-column--center.sr-module.al-article-list-group.module-listview div.sr-list.al-article-box.al-normal.clearfix","link":" h4.sri-title.customLink.al-title a.article-link","title":" h4.sri-title.customLink.al-title a.article-link","total_articles":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div#searchResultsPage div.widget.widget-SolrSearch.widget-instance-OUP_SearchResults div.page-column-wrap div#ContentColumn.page-column.page-column--center.sr-module.al-article-list-group.module-listview div.sr-statistics","abstract_article_page":true,"abstract":"div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div.page-column-wrap div#ContentColumn.page-column.page-column--center div.content-inner-wrap div.article-body div#ContentTab.content.active div.widget.widget-ArticleFulltext.widget-instance-OUP_Abstract_Article_FullText_Widget div.module-widget div.widget-items section.abstract p"},"info":{"domain_url":"https://academic.oup.com","articles_url":"/jxb/search-results?page=*page_number*&allJournals=1&f_ContentType=Journal+Article&f_ArticleTypeDisplayName=Research+Article&fl_SiteID=5304","article_per_page":20,"page_number":1}}}
+{
+    "iopscience.iop": {
+        "full_name": "IOPSCIENCE : Bioinspiration & Biomimetics",
+        "query": {
+            "title": "h2.art-list-item-title a",
+            "abstract": "div.article-text",
+            "authors": "p#wd-art-list-authors"
+        },
+        "query_page": {
+            "origin": "div.publication-title a",
+            "pub_date": {"query": "div.article-head span.wd-jnl-art-pub-date", "regex": "(?<=Published\\s)(.*)"}
+        },
+        "control": {
+            "article": "div.art-list div.art-list-item",
+            "link": "h2.art-list-item-title a",
+            "total_articles": "html body#back-to-top-target div.page-body div.wrapper.grid-2-col.db-showgrid.tb-showgrid.cf main div.db1.tb1 div#wd-iop-col-2nd-controls.cf.float-switch.fs-col-key.mb-1 span.small.pt-025.init-right"
+        },
+        "info": {
+            "domain_url": "https://iopscience.iop.org",
+            "articles_url": "/collection/*article_per_page*/*page_number*?collectionType=PHYSICS_REVIEWS",
+            "full_url": "https://iopscience.iop.org/collection/50/1?collectionType=PHYSICS_REVIEWS",
+            "article_per_page": 50,
+            "page_number": 1
+        }
+    },
+
+    "academic.oup.com": {
+        "full_name": "OXFORD ACADEMIC : Journal of Experimental Botany",
+        "query": {
+            "title": "a.article-link",
+            "pub_date": {"query": "div.sri-date.al-pub-date", "regex": "(?<=Published:\\s)(.*)"}
+        },
+        "query_page": {
+            "origin": "span.article-pubstate.article-flag",
+            "abstract": ["section.abstract","div.widget-ArticleFulltext p strong"],
+            "authors": "div.al-authors-list a.linked-name",
+            "keyboards": "div.kwd-group"
+        },
+        "control": {
+            "article": "div.al-article-box",
+            "link": "a.article-link",
+            "total_articles": "div.master-container main#main.js-main section.master-main.row div.center-inner-row.no-overflow div#searchResultsPage div.widget.widget-SolrSearch.widget-instance-OUP_SearchResults div.page-column-wrap div#ContentColumn.page-column.page-column--center.sr-module.al-article-list-group.module-listview div.sr-statistics"
+        },
+        "info": {
+            "domain_url": "https://academic.oup.com",
+            "articles_url": "/jxb/search-results?page=*page_number*&allJournals=1&f_ContentType=Journal+Article&fl_SiteID=5304",
+            "full_url": "https://academic.oup.com/jxb/search-results?page=1&allJournals=1&f_ContentType=Journal+Article&fl_SiteID=5304",
+            "article_per_page": 20,
+            "page_number": 1
+        }
+    },
+
+    "jeb.biologists.org.2019": {
+        "full_name": "The company of biologists : Journal of Experimental Biology, 2019",
+        "query": {
+            "article": "li.search-result-highwire-citation",
+            "link": "a.highwire-cite-linked-title",
+            "title": "span.highwire-cite-title",
+            "total_articles": "h1#page-title",
+            "load_page": true,
+            "abstract": "div.section.abstract p"
+        },
+        "info": {
+            "domain_url": "http://jeb.biologists.org",
+            "articles_url": "/search/%20toc_section%3AArticles%7C%7CJournal%20Article%7C%7CJournal%20Articles%7C%7CResearch%20Article%7C%7CResearch%20Articles%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Flight%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Swimming%7C%7CResearch%20Article%2C%20General%20Fluid%20Dynamic%20Approaches%7C%7CResearch%20Article%2C%20Motor%20Systems%20numresults%3A*article_per_page*%20sort%3Apublication-date%20direction%3Adescending%20format_result%3Astandard?page=*page_number*&facet%5Bresource-type%5D%5B0%5D=HWCIT&facet%5Btoc-section-id%5D%5B0%5D=Research%20Article&facet%5Bpublication-date%5D%5B0%5D=2019",
+            "article_per_page": 100,
+            "page_number": 0
+        }
+    },
+    "jeb.biologists.org.2015.2018": {
+        "full_name": "The company of biologists : Journal of Experimental Biology, 2015-2018",
+        "query": {
+            "article": "li.search-result-highwire-citation",
+            "link": "a.highwire-cite-linked-title",
+            "title": "span.highwire-cite-title",
+            "total_articles": "h1#page-title",
+            "load_page": true,
+            "abstract": "div.section.abstract p"
+        },
+        "info": {
+            "domain_url": "http://jeb.biologists.org",
+            "articles_url": "/search/%20toc_section%3AArticles%7C%7CJournal%20Article%7C%7CJournal%20Articles%7C%7CResearch%20Article%7C%7CResearch%20Articles%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Flight%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Swimming%7C%7CResearch%20Article%2C%20General%20Fluid%20Dynamic%20Approaches%7C%7CResearch%20Article%2C%20Motor%20Systems%20numresults%3A*article_per_page*%20sort%3Apublication-date%20direction%3Adescending%20format_result%3Astandard?page=*page_number*&facet%5Bresource-type%5D%5B0%5D=HWCIT&facet%5Btoc-section-id%5D%5B0%5D=Research%20Article&facet%5Bpublication-date%5D%5B0%5D=2015-2018",
+            "article_per_page": 100,
+            "page_number": 0
+        }
+    },
+    "jeb.biologists.org.2010.2014": {
+        "full_name": "The company of biologists : Journal of Experimental Biology, 2010-2014",
+        "query": {
+            "article": "li.search-result-highwire-citation",
+            "link": "a.highwire-cite-linked-title",
+            "title": "span.highwire-cite-title",
+            "total_articles": "h1#page-title",
+            "load_page": true,
+            "abstract": "div.section.abstract p"
+        },
+        "info": {
+            "domain_url": "http://jeb.biologists.org",
+            "articles_url": "/search/%20toc_section%3AArticles%7C%7CJournal%20Article%7C%7CJournal%20Articles%7C%7CResearch%20Article%7C%7CResearch%20Articles%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Flight%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Swimming%7C%7CResearch%20Article%2C%20General%20Fluid%20Dynamic%20Approaches%7C%7CResearch%20Article%2C%20Motor%20Systems%20numresults%3A*article_per_page*%20sort%3Apublication-date%20direction%3Adescending%20format_result%3Astandard?page=*page_number*&facet%5Bresource-type%5D%5B0%5D=HWCIT&facet%5Btoc-section-id%5D%5B0%5D=Research%20Article&facet%5Bpublication-date%5D%5B0%5D=2010-2014",
+            "article_per_page": 100,
+            "page_number": 0
+        }
+    },
+    "jeb.biologists.org.2005.2009": {
+        "full_name": "The company of biologists : Journal of Experimental Biology, 2005-2009",
+        "query": {
+            "article": "li.search-result-highwire-citation",
+            "link": "a.highwire-cite-linked-title",
+            "title": "span.highwire-cite-title",
+            "total_articles": "h1#page-title",
+            "load_page": true,
+            "abstract": "div.section.abstract p"
+        },
+        "info": {
+            "domain_url": "http://jeb.biologists.org",
+            "articles_url": "/search/%20toc_section%3AArticles%7C%7CJournal%20Article%7C%7CJournal%20Articles%7C%7CResearch%20Article%7C%7CResearch%20Articles%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Flight%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Swimming%7C%7CResearch%20Article%2C%20General%20Fluid%20Dynamic%20Approaches%7C%7CResearch%20Article%2C%20Motor%20Systems%20numresults%3A*article_per_page*%20sort%3Apublication-date%20direction%3Adescending%20format_result%3Astandard?page=*page_number*&facet%5Bresource-type%5D%5B0%5D=HWCIT&facet%5Btoc-section-id%5D%5B0%5D=Research%20Article&facet%5Bpublication-date%5D%5B0%5D=2005-2009",
+            "article_per_page": 100,
+            "page_number": 0
+        }
+    },
+    "jeb.biologists.org.1980.2004": {
+        "full_name": "The company of biologists : Journal of Experimental Biology, 1980-2004",
+        "query": {
+            "article": "li.search-result-highwire-citation",
+            "link": "a.highwire-cite-linked-title",
+            "title": "span.highwire-cite-title",
+            "total_articles": "h1#page-title",
+            "load_page": true,
+            "abstract": "div.section.abstract p"
+        },
+        "info": {
+            "domain_url": "http://jeb.biologists.org",
+            "articles_url": "/search/%20toc_section%3AArticles%7C%7CJournal%20Article%7C%7CJournal%20Articles%7C%7CResearch%20Article%7C%7CResearch%20Articles%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Flight%7C%7CResearch%20Article%2C%20Biomechanics%20of%20Swimming%7C%7CResearch%20Article%2C%20General%20Fluid%20Dynamic%20Approaches%7C%7CResearch%20Article%2C%20Motor%20Systems%20numresults%3A*article_per_page*%20sort%3Apublication-date%20direction%3Adescending%20format_result%3Astandard?page=*page_number*&facet%5Bresource-type%5D%5B0%5D=HWCIT&facet%5Btoc-section-id%5D%5B0%5D=Research%20Article&facet%5Bpublication-date%5D%5B0%5D=1980-2004",
+            "article_per_page": 100,
+            "page_number": 0
+        }
+    },
+    "scientificamerican.com": {
+        "full_name": "SCIENTIFIC AMERICAN : medical-biotech articles",
+        "query": {
+            "article": "article.listing-wide",
+            "link": "h2.t_listing-title a",
+            "title": "h2.t_listing-title a",
+            "total_pages": "footer.pagination ol.pagination__nums li.pagination__nums__item:last-child",
+            "abstract": "p"
+        },
+        "info": {
+            "domain_url": "https://www.scientificamerican.com",
+            "articles_url": "/medical-biotech/?page=*page_number*",
+            "article_per_page": 20,
+            "page_number": 1
+        }
+    },
+    "sciencemag.org": {
+        "full_name": "SCIENCE : latest news",
+        "query": {
+            "article": "div.primary article",
+            "link": "h2.media__headline a",
+            "title": "h2.media__headline a",
+            "total_pages": "ol.pager.pagination li.last a",
+            "abstract": "div.media__deck"
+        },
+        "info": {
+            "domain_url": "https://www.sciencemag.org",
+            "articles_url": "/news/latest-news?page=*page_number*",
+            "article_per_page": 25,
+            "page_number": 0
+        }
+    }
+}
