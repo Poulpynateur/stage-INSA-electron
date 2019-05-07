@@ -8,7 +8,7 @@ const fs = require('fs');
  * - info : to navigate on the site
  * - articles[] that old every article that have been process
  */
-var scrape_target = require('../ressources/app/scrape_target.json');
+var scrape_target = require('../ressources/app/parameter.json');
 
 var target = {};
 var articles = [];
@@ -21,6 +21,18 @@ module.exports = {
             //If we have the target in our scrapping list
             initiScrape(scrape_target[name]);
         }
+    },
+    fromUrl: function(url, target_name, callback) {
+        target = scrape_target[target_name];
+        var page_load = function(html) {
+            var content = cheerio.load(html);
+            var data = {};
+            data.link = url;
+
+            getDataFromHtml(content, target.query_page, data);
+            callback(data);
+        };
+        requestToUrl(url, page_load, page_load);
     }
 };
 
@@ -66,11 +78,15 @@ function requestToUrl(url, success, error) {
  * Make sure the site is accessible
  */
 function initiScrape(_target) {
-
+    //Reset render
+    $('#scrapping_done').addClass('d-none');
+    $('#scrapping_in_process').addClass('d-none');
+    $('#scrapping_status_total').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+    
     target = _target;
     //Refresh the DOM
     $('#site_name').text(target.info.domain_url);
-    $('main').removeClass('d-none');
+    $('#main_scrapper').removeClass('d-none');
 
     requestToUrl(getUrl(target.info), function(html) {
         var content = cheerio.load(html);
@@ -143,7 +159,10 @@ function getArticlesOfPage(html, callback) {
     articles.each(function() {
         var data = {};
         var link = content(this).find(target.control.link).attr('href');
-        data.link = target.info.domain_url + link;
+        if(link.includes('http'))
+            data.link = link;
+        else
+            data.link = target.info.domain_url + link;
 
         if(target.query)
             getDataFromHtml(content, target.query, data, content(this));
@@ -164,41 +183,69 @@ function getArticlesOfPage(html, callback) {
     });
 }
 
-function readContentFromQuery(content, queries, article) {
+/**
+ * @param {*} content from cheerio
+ * @param {*} queries string with query, can be an array of queries
+ * @param {*} article the article element (if one), the the wuery will be search in this
+ * @param {*} attr if we want to get a specific attr value
+ */
+function readContentFromQuery(content, queries, article, attr) {
+    var result_tag;
     if(Array.isArray(queries)) {
-        var text = "";
         for(var i=0; i<queries.length; i++) {
-            text = (article)? article.find(queries[i]).text() : content(queries[i]).text();
-            if(text) {
-                return text;
-            }
+            result_tag = (article)? article.find(queries[i]) : content(queries[i]);
+            if(result_tag.length > 0)
+                break;
         }
-        return text;
     }
     else {
-        return (article)? article.find(queries).text() : content(queries).text();
+        result_tag = (article)? article.find(queries) : content(queries);
+    }
+
+    if(attr) {
+        return result_tag.first().attr(attr);
+    }
+    else {
+        var text = "";
+        result_tag.each(function(index) {
+            text += $(this).text().trim();
+            text += (index < result_tag.length - 1)? ", " : "";
+        });
+        return text;
     }
 }
 
 function getDataFromHtml(content, queries, data, article) {
     for(var key in queries) {
         if(typeof queries[key] === 'object' && !(queries[key] instanceof Array)) {
-            var text = readContentFromQuery(content, queries[key].query, article).match(queries[key].regex);
-            if(text)
-                data[key] = text[0];
+
+            if(queries[key].regex) {
+                var text = readContentFromQuery(content, queries[key].query, article).match(queries[key].regex);
+                if(text && text[0])
+                    data[key] = text[0];
+            }
+            if(queries[key].regex_replace) {
+                var text = readContentFromQuery(content, queries[key].query, article).replace(queries[key].regex_replace, queries[key].regex_replace_str);
+                if(text)
+                    data[key] = text;        
+            }
+            if(queries[key].attr) {
+                data[key] =  readContentFromQuery(content, queries[key].query, article, queries[key].attr);
+            }
+            
         }
         else {
             data[key] = readContentFromQuery(content, queries[key], article);
         }
     }
+    return data;
 }
 
 /**
  * Then all articles are scrap
  */
 function scrappingDone() {
-    console.log(articles);
-    fs.writeFile("./ressources/app/" + name + ".articles.json", JSON.stringify(articles), function(err) {
+    fs.writeFile("./ressources/app/output/" + name + ".articles.json", JSON.stringify(articles), function(err) {
         if(err)
             return console.error(err);
         

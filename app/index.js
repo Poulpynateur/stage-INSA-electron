@@ -2,7 +2,9 @@ const {shell, ipcRenderer} = require('electron');
 const fs = require('fs');
 
 var scrape = require('./HTMLscraper.js');
-var scrape_source = require('../ressources/app/scrape_target.json');
+var rss = require('./RSSreader.js');
+
+var scrape_source = require('../ressources/app/parameter.json');
 
 /**
  * Generate option from json
@@ -22,4 +24,8 @@ $(document).on('click', '#scrape_articles', function(event) {
 
 $(document).on('click', '#navigate_to_site', function(event) {
 	shell.openExternal($('#target_site').find(":selected").val());
+});
+
+$(document).on('click', '#rss_test_launch', function(event) {
+	rss.checkForNew();
 });
