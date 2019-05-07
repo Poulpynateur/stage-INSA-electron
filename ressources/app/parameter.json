@@ -54,7 +54,8 @@
             "title": "div.highwire-cite.has-author-tooltip div.highwire-cite-title",
             "authors": "div.highwire-cite.has-author-tooltip span.highwire-citation-author",
             "origin": "div.highwire-cite.has-author-tooltip span.highwire-cite-category",
-            "pub_date": {"query": "div.highwire-cite.has-author-tooltip span.highwire-cite-metadata-publisheddate", "regex": "(?<=Published\\s)(.*)"}
+            "pub_date": {"query": "div.highwire-cite.has-author-tooltip span.highwire-cite-metadata-publisheddate", "regex": "(?<=Published\\s)(.*)"},
+            "image": {"query": "div.article img[src^='http']", "attr": "src"}
         },
         "control": {
             "article": "li.search-result-highwire-citation",

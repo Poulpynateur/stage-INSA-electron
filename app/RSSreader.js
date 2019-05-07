@@ -6,8 +6,6 @@ const timeOutSecs = 30;
 var scrape = require('./HTMLscraper.js');
 var rss_param = require('../ressources/app/RSSreader.json');
 
-var source
-
 module.exports = {
 	checkForNew: function () {
         rss_param.last_update = Date.now();
@@ -29,7 +27,6 @@ module.exports = {
 };
 
 function updateArticles(feed, source) {
-    console.log(feed);
     var articles = [];
     source.info.new_articles = feed.items.length;
 
@@ -78,7 +75,6 @@ function updateArticles(feed, source) {
 }
 
 function updateRSSdone(name, articles) {
-    console.log(articles);
     //Save param
     fs.writeFile("./ressources/app/RSSreader.json", JSON.stringify(rss_param), function(err) {
         if(err)

@@ -10,7 +10,6 @@ const fs = require('fs');
  */
 var scrape_target = require('../ressources/app/parameter.json');
 
-var target = {};
 var articles = [];
 var name = '';
 
@@ -23,13 +22,12 @@ module.exports = {
         }
     },
     fromUrl: function(url, target_name, callback) {
-        target = scrape_target[target_name];
+        var target = scrape_target[target_name];
         var page_load = function(html) {
             var content = cheerio.load(html);
-            var data = {};
+            var data = getDataFromHtml(content, target.query_page, data);
             data.link = url;
-
-            getDataFromHtml(content, target.query_page, data);
+            
             callback(data);
         };
         requestToUrl(url, page_load, page_load);
@@ -53,7 +51,6 @@ function getUrl(info) {
  * Don't ask me why I don't use the ajax function of jquery
  */
 function requestToUrl(url, success, error) {
-    var actual_article = articles.length - 1;
     var req = new XMLHttpRequest();
     req.onreadystatechange = function (event) {
         if (this.readyState === XMLHttpRequest.DONE) {
@@ -78,12 +75,12 @@ function requestToUrl(url, success, error) {
  * Make sure the site is accessible
  */
 function initiScrape(_target) {
+    var target = _target;
     //Reset render
     $('#scrapping_done').addClass('d-none');
     $('#scrapping_in_process').addClass('d-none');
     $('#scrapping_status_total').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
     
-    target = _target;
     //Refresh the DOM
     $('#site_name').text(target.info.domain_url);
     $('#main_scrapper').removeClass('d-none');
@@ -112,12 +109,12 @@ function initiScrape(_target) {
     });
 }
 
-function scrape() {
+function scrape(target) {
     //Refresh the DOM
     $('#scrapping_in_process').removeClass('d-none');
 
     requestToUrl(getUrl(target.info), function(html) {
-        getArticlesOfPage(html, function(article_index, data) {
+        getArticlesOfPage(html, target, function(article_index, data) {
             articles.push(data);
             //Refresh the DOM : progress bar
             $('#progress_nbr_article').text(articles.length + ' / ' + target.info.total_articles + ' articles load');
@@ -143,7 +140,7 @@ function scrape() {
  * Load articles from html content()
  * @param {*} callback is launch then article is load
  */
-function getArticlesOfPage(html, callback) {
+function getArticlesOfPage(html, target, callback) {
     var content = cheerio.load(html);
 
     var articles = content(target.control.article);
@@ -165,14 +162,14 @@ function getArticlesOfPage(html, callback) {
             data.link = target.info.domain_url + link;
 
         if(target.query)
-            getDataFromHtml(content, target.query, data, content(this));
+            data = getDataFromHtml(content, target.query, content(this));
 
         if(target.query_page) {
             //One site drop a 403 and send the page anyway, so we have to handle error body
             var page_load = function(html) {
                 var content = cheerio.load(html);
 
-                getDataFromHtml(content, target.query_page, data);
+                data = getDataFromHtml(content, target.query_page);
                 callback(article_index++, data);
             };
             requestToUrl(data.link, page_load, page_load);
@@ -215,7 +212,8 @@ function readContentFromQuery(content, queries, article, attr) {
     }
 }
 
-function getDataFromHtml(content, queries, data, article) {
+function getDataFromHtml(content, queries, article) {
+    var data = {};
     for(var key in queries) {
         if(typeof queries[key] === 'object' && !(queries[key] instanceof Array)) {
 
