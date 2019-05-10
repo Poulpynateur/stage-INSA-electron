@@ -1,4 +1,4 @@
-var cheerio = require('cheerio');
+const cheerio = require('cheerio');
 const fs = require('fs');
 
 /**
@@ -8,7 +8,7 @@ const fs = require('fs');
  * - info : to navigate on the site
  * - articles[] that old every article that have been process
  */
-var scrape_target = require('../ressources/app/parameter.json');
+var scrape_target = require('../ressources/app/HTMLscraper.json');
 
 var articles = [];
 var name = '';
@@ -75,6 +75,7 @@ function requestToUrl(url, success, error) {
  * Make sure the site is accessible
  */
 function initiScrape(_target) {
+    articles = [];
     var target = _target;
     //Reset render
     $('#scrapping_done').addClass('d-none');
@@ -93,19 +94,20 @@ function initiScrape(_target) {
             var total = content(target.control.total_articles).text().match(/(\d*[,.\s]?\d+)(?!.*\d)/g);
             target.info.total_articles = parseInt(total[0].replace(/[.,\s]?/g,''));
         }
+        //If we can't get the number of articles, we can have at least the number of pages
         else if(target.control.total_pages) {
             var total = content(target.control.total_pages).text().match(/[0-9]*/g);
             target.info.max_page = parseInt(total[0]);
             target.info.total_articles = target.info.max_page*target.info.article_per_page;
         }
-        //For TEST PURPOSE
-        target.info.total_articles = target.info.article_per_page;
+
+        if($('#scrape_only_first').is(':checked'))
+            target.info.total_articles = target.info.article_per_page;
 
         //Refresh the DOM
         $('#scrapping_status_total').html('<h5><b>' + target.info.total_articles + '</b> articles founds </h5>');
 
         scrape(target);
-
     });
 }
 
@@ -125,10 +127,14 @@ function scrape(target) {
              * Load the next page then all articles are load
              */
             if(articles.length >= target.info.total_articles) {
-                return scrappingDone();
+                return scrappingDone(target);
             }
             else if(article_index+1 == target.info.article_per_page) {
-                return scrape();
+                fs.writeFile("./ressources/app/output/old/" + name + ".articles.json", JSON.stringify(articles), function(err) {
+                    if(err)
+                        return console.error(err);
+                });
+                return scrape(target);
             }
         });
     });
@@ -156,25 +162,26 @@ function getArticlesOfPage(html, target, callback) {
     articles.each(function() {
         var data = {};
         var link = content(this).find(target.control.link).attr('href');
-        if(link.includes('http'))
-            data.link = link;
-        else
-            data.link = target.info.domain_url + link;
+        if(!link.includes('http'))
+            link = target.info.domain_url + link;
 
-        if(target.query)
+        if(target.query) {
             data = getDataFromHtml(content, target.query, content(this));
-
+            data.link = link;
+        }
         if(target.query_page) {
             //One site drop a 403 and send the page anyway, so we have to handle error body
             var page_load = function(html) {
                 var content = cheerio.load(html);
 
                 data = getDataFromHtml(content, target.query_page);
+                data.link = link;
                 callback(article_index++, data);
             };
-            requestToUrl(data.link, page_load, page_load);
+            requestToUrl(link, page_load, page_load);
         }
         else {
+            //If we dont have to load the page we can pass directly to the next article
             callback(article_index++, data);
         }
     });
@@ -242,11 +249,11 @@ function getDataFromHtml(content, queries, article) {
 /**
  * Then all articles are scrap
  */
-function scrappingDone() {
-    fs.writeFile("./ressources/app/output/" + name + ".articles.json", JSON.stringify(articles), function(err) {
+function scrappingDone(target) {
+    fs.writeFile("./ressources/app/output/old/" + name + ".articles.json", JSON.stringify(articles), function(err) {
         if(err)
             return console.error(err);
         
-        $('#scrapping_done').removeClass('d-none'); 
+        $('#scrapping_done').removeClass('d-none');
     });
 }

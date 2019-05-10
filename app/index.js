@@ -1,13 +1,14 @@
-const {shell, ipcRenderer} = require('electron');
+const {shell} = require('electron');
 const fs = require('fs');
 
 var scrape = require('./HTMLscraper.js');
 var rss = require('./RSSreader.js');
 
-var scrape_source = require('../ressources/app/parameter.json');
+var scrape_source = require('../ressources/app/HTMLscraper.json');
 
 /**
  * Generate option from json
+ * Show RSS statistics
  */
 $(document).ready(function() {
 	var select = $('#target_site');
@@ -16,6 +17,8 @@ $(document).ready(function() {
 		var option = $(document.createElement('option')).attr({"name": source, "value": site.info.domain_url}).text(site.full_name);
 		select.append(option);
 	});
+
+	rss.refreshRSSstat();
 });
 
 $(document).on('click', '#scrape_articles', function(event) {
@@ -28,4 +31,7 @@ $(document).on('click', '#navigate_to_site', function(event) {
 
 $(document).on('click', '#rss_test_launch', function(event) {
 	rss.checkForNew();
+});
+$(document).on('click', '#rss_refresh_stat', function(event) {
+	rss.refreshRSSstat();
 });

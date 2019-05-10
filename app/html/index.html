@@ -8,9 +8,39 @@
 </head>
 
 <body>
+
 	<section>
 		<header class="container">
-			<h1 class="my-4 text-center">Scrapping data from scientific blogs</h1>
+			<h1 class="my-4">Reading RSS feed's</h1>
+		</header>
+		<section class="container">
+			<table class="table" id="RSS_statistics">
+				<thead>
+					<tr>
+						<th scope="col">Source</th>
+						<th scope="col">RSS</th>
+						<th scope="col">Total articles load</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+			<div class="row mb-2">
+				<h5 id="last_rss_update" class="col"></h5>
+				<h5 id="total_rss_new" class="col text-success text-right"></h5>
+			</div>
+		</section>
+		<section class="container">
+			<button id="rss_refresh_stat" class="btn btn-light btn-block d-inline-block">REFRESH</button>
+			<button id="rss_test_launch" class="btn btn-primary btn-block d-inline-block">Check RSS manually</button>
+		</section>
+	</section>
+
+	<section>
+		<header class="container">
+			<h1 class="my-4">Scrapping old data</h1>
 
 			<hr class="my-4">
 			<div class="row">
@@ -28,6 +58,12 @@
 				<div class="col-6 col-lg-2">
 					<button id="scrape_articles" class="w-100 btn btn-primary">Scrap articles</button>
 				</div>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="scrape_only_first">
+				<label class="form-check-label" for="defaultCheck1">
+				  Scrape only the first page
+				</label>
 			</div>
 		</header>
 
@@ -59,16 +95,6 @@
 				<hr class="my-4">
 				<h4 class="text-center text-success">Done !</h4>
 			</div>
-		</section>
-	</section>
-
-	<section>
-		<header class="container">
-			<h1 class="my-4 text-center">Reading RSS feed's</h1>
-			<hr class="my-4">
-		</header>
-		<section class="container">
-			<button id="rss_test_launch" class="btn btn-primary btn-block">RSS test</button>
 		</section>
 	</section>
 

@@ -1,45 +1,50 @@
 {
-    "last_update": 1557230428960,
-    "sources": [
-        {
-            "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
-            "parameter_name": "iopscience.iop",
-            "info": {
-                "last_title": "Flow field perception based on the fish lateral line system",
-                "new_articles": 10
-            }
-        },
-        {
-            "rss_url": "https://academic.oup.com/rss/site_5304/3170.xml",
-            "parameter_name": "academic.oup.com",
-            "info": {
-                "last_title": "Plant and crop simulation models: powerful tools to link physiology, genetics, and phenomics",
-                "new_articles": 20
-            }
-        },
-        {
-            "rss_url": "http://jeb.biologists.org/rss/open.xml",
-            "parameter_name": "jeb.biologists.org.2019",
-            "info": {
-                "last_title": "Preferred walking speed on rough terrain: is it all about energetics? [RESEARCH ARTICLE]",
-                "new_articles": 22
-            }
-        },
-        {
-            "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
-            "parameter_name": "sciencemag.org",
-            "info": {
-                "last_title": "Experimental Huntington disease drug reduces toxic protein, newly published data confirm",
-                "new_articles": 10
-            }
-        },
-        {
-            "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
-            "parameter_name": "scientificamerican.com",
-            "info": {
-                "last_title": "\"Frost Fairs,\" the Little Ice Age and Climate Change",
-                "new_articles": 25
-            }
-        }
-    ]
+  "last_update": 1557472507024,
+  "sources": [
+    {
+      "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
+      "parameter_name": "iopscience.iop",
+      "info": {
+        "last_title": "Flow field perception based on the fish lateral line system",
+        "new_articles": 0,
+        "total_articles": 10
+      }
+    },
+    {
+      "rss_url": "https://academic.oup.com/rss/site_5304/3170.xml",
+      "parameter_name": "academic.oup.com",
+      "info": {
+        "last_title": "Plant and crop simulation models: powerful tools to link physiology, genetics, and phenomics",
+        "new_articles": 0,
+        "total_articles": 20
+      }
+    },
+    {
+      "rss_url": "http://jeb.biologists.org/rss/open.xml",
+      "parameter_name": "jeb.biologists.org.2019",
+      "info": {
+        "last_title": "Preferred walking speed on rough terrain: is it all about energetics? [RESEARCH ARTICLE]",
+        "new_articles": 0,
+        "total_articles": 22
+      }
+    },
+    {
+      "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
+      "parameter_name": "sciencemag.org",
+      "info": {
+        "last_title": "Experimental Huntington disease drug reduces toxic protein, newly published data confirm",
+        "new_articles": 0,
+        "total_articles": 10
+      }
+    },
+    {
+      "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
+      "parameter_name": "scientificamerican.com",
+      "info": {
+        "last_title": "Can \"the Pill\" Improve Relationship Satisfaction?",
+        "new_articles": 0,
+        "total_articles": 26
+      }
+    }
+  ]
 }
