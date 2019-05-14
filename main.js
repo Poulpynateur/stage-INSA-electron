@@ -2,10 +2,6 @@ const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 const iconPath = path.join(__dirname, '/ressources/app/icon.png');
 
-let $ = require('jquery');
-
-var rss = require('./app/RSSreader.js');
-
 let mainWindow = null;
 let appIcon = null;
 
@@ -14,6 +10,7 @@ function showWindow() {
         mainWindow = new BrowserWindow({
             width: 1200,
             height: 800,
+            show: false,
             webPreferences: {
                 nodeIntegration: true
             }
@@ -21,7 +18,7 @@ function showWindow() {
     
         mainWindow.loadFile('./app/html/index.html');
         mainWindow.toggleDevTools();
-    
+
         mainWindow.on('minimize',function(event){
             event.preventDefault();
             mainWindow.hide();
@@ -45,10 +42,6 @@ function showWindow() {
 /* Close and open event */
 app.on('ready', function() {
     //Check for RSS feed every two hours
-   /*rss.checkForNew();
-   setInterval(function() {
-        rss.checkForNew();
-    }, 7200000);*/
 
     appIcon = new Tray(iconPath);
 
@@ -63,6 +56,8 @@ app.on('ready', function() {
     appIcon.setToolTip('RSS reader to keep the database up to date');
     appIcon.setContextMenu(contextMenu);
     appIcon.on('click', showWindow);
+
+    showWindow();
 });
 
 app.on('window-all-closed', () => {

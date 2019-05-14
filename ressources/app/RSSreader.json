@@ -1,5 +1,5 @@
 {
-  "last_update": 1557472507024,
+  "last_update": 1557832526681,
   "sources": [
     {
       "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
@@ -14,36 +14,36 @@
       "rss_url": "https://academic.oup.com/rss/site_5304/3170.xml",
       "parameter_name": "academic.oup.com",
       "info": {
-        "last_title": "Plant and crop simulation models: powerful tools to link physiology, genetics, and phenomics",
+        "last_title": "Breeding drought-resistant crops: G×E interactions, proteomics and pQTLS",
         "new_articles": 0,
-        "total_articles": 20
+        "total_articles": 24
       }
     },
     {
-      "rss_url": "http://jeb.biologists.org/rss/open.xml",
+      "rss_url": "http://jeb.biologists.org/rss/current.xml",
       "parameter_name": "jeb.biologists.org.2019",
       "info": {
-        "last_title": "Preferred walking speed on rough terrain: is it all about energetics? [RESEARCH ARTICLE]",
+        "last_title": "Food-derived volatiles enhance consumption in Drosophila melanogaster [RESEARCH ARTICLE]",
         "new_articles": 0,
-        "total_articles": 22
+        "total_articles": 64
       }
     },
     {
       "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
       "parameter_name": "sciencemag.org",
       "info": {
-        "last_title": "Experimental Huntington disease drug reduces toxic protein, newly published data confirm",
-        "new_articles": 0,
-        "total_articles": 10
+        "last_title": "Most snail shells coil to the right. This single gene may be the reason why",
+        "new_articles": 1,
+        "total_articles": 21
       }
     },
     {
       "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
       "parameter_name": "scientificamerican.com",
       "info": {
-        "last_title": "Can \"the Pill\" Improve Relationship Satisfaction?",
-        "new_articles": 0,
-        "total_articles": 26
+        "last_title": "Should Scientists Keep Their Private Debates Private?",
+        "new_articles": 2,
+        "total_articles": 32
       }
     }
   ]

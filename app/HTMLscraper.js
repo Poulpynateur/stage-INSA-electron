@@ -12,6 +12,7 @@ var scrape_target = require('../ressources/app/HTMLscraper.json');
 
 var articles = [];
 var name = '';
+var number_error = 0;
 
 module.exports = {
     fromOption: function (option_object) {
@@ -25,7 +26,9 @@ module.exports = {
         var target = scrape_target[target_name];
         var page_load = function(html) {
             var content = cheerio.load(html);
-            var data = getDataFromHtml(content, target.query_page, data);
+
+            var queries = (target.query_page)? target.query_page : target.query_rss;
+            var data = getDataFromHtml(content, queries, data);
             data.link = url;
             
             callback(data);
@@ -58,8 +61,10 @@ function requestToUrl(url, success, error) {
                 success(this.responseText);
             }
             else {
-                if(error)
+                if(error) {
+                    number_error++;
                     error(this.responseText);
+                }
                 else
                     console.error("Oopsy, error occured: %d (%s)", this.status, this.statusText);
             }
@@ -75,6 +80,7 @@ function requestToUrl(url, success, error) {
  * Make sure the site is accessible
  */
 function initiScrape(_target) {
+    number_error = 0;
     articles = [];
     var target = _target;
     //Reset render
@@ -126,7 +132,7 @@ function scrape(target) {
             /**
              * Load the next page then all articles are load
              */
-            if(articles.length >= target.info.total_articles) {
+            if(articles.length >= target.info.total_articles - number_error) {
                 return scrappingDone(target);
             }
             else if(article_index+1 == target.info.article_per_page) {
@@ -237,7 +243,6 @@ function getDataFromHtml(content, queries, article) {
             if(queries[key].attr) {
                 data[key] =  readContentFromQuery(content, queries[key].query, article, queries[key].attr);
             }
-            
         }
         else {
             data[key] = readContentFromQuery(content, queries[key], article);

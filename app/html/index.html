@@ -9,11 +9,11 @@
 
 <body>
 
-	<section>
-		<header class="container">
+	<section class="container">
+		<header>
 			<h1 class="my-4">Reading RSS feed's</h1>
 		</header>
-		<section class="container">
+		<section>
 			<table class="table" id="RSS_statistics">
 				<thead>
 					<tr>
@@ -32,15 +32,14 @@
 				<h5 id="total_rss_new" class="col text-success text-right"></h5>
 			</div>
 		</section>
-		<section class="container">
-			<button id="rss_refresh_stat" class="btn btn-light btn-block d-inline-block">REFRESH</button>
+		<section>
 			<button id="rss_test_launch" class="btn btn-primary btn-block d-inline-block">Check RSS manually</button>
 		</section>
 	</section>
 
-	<section>
-		<header class="container">
-			<h1 class="my-4">Scrapping old data</h1>
+	<section class="container">
+		<header>
+			<h1 class="my-4">Old data</h1>
 
 			<hr class="my-4">
 			<div class="row">
@@ -67,10 +66,10 @@
 			</div>
 		</header>
 
-		<section id="main_scrapper" class="container d-none">
+		<section id="main_scrapper" class="d-none">
 			<hr class="my-4">
 			<div class="row">
-				<div class="col-8">Scrapping from <h5 id="site_name" class="d-inline-block"></h5></div>
+				<div class="col-8">Scraping from <h5 id="site_name" class="d-inline-block"></h5></div>
 				<div class="col-4">
 					<div id="scrapping_status_total" class="text-right">
 						<div class="spinner-border" role="status">
@@ -96,11 +95,12 @@
 				<h4 class="text-center text-success">Done !</h4>
 			</div>
 		</section>
+		<button id="process_old_data" class="btn btn-primary btn-block d-inline-block my-2">Process old data</button>
 	</section>
 
 	<script>let $ = require('jquery');</script>
 	<script>require('popper.js');</script>
 	<script>require('bootstrap');</script>
-	<script>require('../index.js')</script>
+	<script>require('../index.js');</script>
 </body>
 </html>

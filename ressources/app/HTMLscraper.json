@@ -1,5 +1,5 @@
 {
-    "iopscience.iop": {
+    "iopscience.iop.org": {
         "full_name": "IOPSCIENCE : Bioinspiration & Biomimetics",
         "query": {
             "title": ".art-list-item-title a",
@@ -8,6 +8,13 @@
             "pub_date": {"query": "#wd-art-list-meta", "regex": "^[0-9]*"},
             "abstract": "div.article-text"
         },
+        "query_rss": {
+            "title": "h1.wd-jnl-art-title",
+            "authors": "div.article-head span[data-authors] span[itemprop='name']",
+            "origin": "span.wd-jnl-art-sur-title",
+            "pub_date": {"query": "span.wd-jnl-art-pub-date", "regex": "(?<=Published\\s)(.*)"},
+            "abstract": "div.wd-jnl-art-abstract p"
+        },    
         "control": {
             "article": "div.art-list div.art-list-item",
             "link": "h2.art-list-item-title a",
@@ -25,8 +32,8 @@
     "academic.oup.com": {
         "full_name": "OXFORD ACADEMIC : Journal of Experimental Botany",
         "query_page": {
-            "origin": "span.article-pubstate.article-flag",
-            "abstract": ["section.abstract","div.widget-ArticleFulltext p strong"],
+            "origin": "div.article-metadata-tocSections a",
+            "abstract": ["section.abstract","div.widget-ArticleFulltext > div > div > p"],
             "authors": "div.al-authors-list a.linked-name",
             "keywords": "div.kwd-group",
             "pub_date": "div.citation-date",
@@ -49,7 +56,7 @@
     "jeb.biologists.org.2019": {
         "full_name": "The company of biologists : Journal of Experimental Biology, 2019",
         "query_page": {
-            "abstract": "div.section.abstract p",
+            "abstract": ["div.section.abstract p", "div.article.fulltext-view p"],
             "keywords": "div.highwire-a-full-title-keyword span",
             "title": "div.highwire-cite.has-author-tooltip div.highwire-cite-title",
             "authors": "div.highwire-cite.has-author-tooltip span.highwire-citation-author",
@@ -170,8 +177,8 @@
     "scientificamerican.com": {
         "full_name": "SCIENTIFIC AMERICAN : medical-biotech articles",
         "query_page": {
-            "authors": "span[itemprop='author'] a",
-            "pub_date": "div.article-header__divider li.meta-list__item *[itemprop='datePublished']",
+            "authors": ["span[itemprop='author'] a", "div.article-header__divider li.meta-list__item a"],
+            "pub_date": {"query": "div.article-header__divider li.meta-list__item", "regex":"(?<=\\son\\s)(.*\\s[0-9]+[,.]\\s[0-9]+)"},
             "abstract": ["div.article-text", "section.article-grid__main-paywall div.article-block"],
             "title": ["h1.article-header__title", "h3.podcasts-header__title"],
             "origin": ["div.article-header__inner__category", "div.article-header__notice a", "span.article-header__inner__blog-category__label"],
@@ -194,8 +201,8 @@
     "sciencemag.org": {
         "full_name": "SCIENCE : latest news",
         "query_page": {
-            "abstract": "div.article__body p",
-            "origin": "ul.sticky-header__navlist a[href='/news']",
+            "abstract": "div.article__body > p",
+            "origin": {"query": "footer.article__foot > h2", "regex": "\\s(\\w+)$"},
             "image": {"query": "div#main-content img", "attr": "src"},
             "title": "header h1.article__headline",
             "authors": "header.article__header p.byline a",

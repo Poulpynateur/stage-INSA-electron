@@ -3,6 +3,7 @@ const fs = require('fs');
 
 var scrape = require('./HTMLscraper.js');
 var rss = require('./RSSreader.js');
+var process = require('./DataProcess.js');
 
 var scrape_source = require('../ressources/app/HTMLscraper.json');
 
@@ -18,7 +19,10 @@ $(document).ready(function() {
 		select.append(option);
 	});
 
-	rss.refreshRSSstat();
+	rss.checkForNew();
+	setInterval(function() {
+		 rss.checkForNew();
+	}, 7200000);
 });
 
 $(document).on('click', '#scrape_articles', function(event) {
@@ -32,6 +36,7 @@ $(document).on('click', '#navigate_to_site', function(event) {
 $(document).on('click', '#rss_test_launch', function(event) {
 	rss.checkForNew();
 });
-$(document).on('click', '#rss_refresh_stat', function(event) {
-	rss.refreshRSSstat();
+
+$(document).on('click', '#process_old_data', function(event) {
+	process.oldData();
 });
