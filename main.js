@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
-const iconPath = path.join(__dirname, '/ressources/app/icon.png');
+const iconPath = path.join(__dirname, '/ressources/app/images/icon.png');
 
 let mainWindow = null;
 let appIcon = null;
@@ -53,7 +53,7 @@ app.on('ready', function() {
             }
         }
     ]);
-    appIcon.setToolTip('RSS reader to keep the database up to date');
+    appIcon.setToolTip('INSA RSS reader');
     appIcon.setContextMenu(contextMenu);
     appIcon.on('click', showWindow);
 

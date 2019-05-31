@@ -5,7 +5,7 @@ var scrape = require('./HTMLscraper.js');
 var rss = require('./RSSreader.js');
 var process = require('./DataProcess.js');
 
-var scrape_source = require('../ressources/app/HTMLscraper.json');
+var scrape_source = require('../ressources/conf/HTMLscraper.json');
 
 /**
  * Generate option from json
@@ -38,5 +38,6 @@ $(document).on('click', '#rss_test_launch', function(event) {
 });
 
 $(document).on('click', '#process_old_data', function(event) {
-	process.oldData();
+	console.log('Starting');
+	process.oldDataPython();
 });

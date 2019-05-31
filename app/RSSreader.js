@@ -4,12 +4,13 @@ const fs = require('fs');
 const timeOutSecs = 30;
 
 var scrape = require('./HTMLscraper.js');
-var rss_param = require('../ressources/app/RSSreader.json');
+var rss_param = require('../ressources/conf/RSSreader.json');
 
 module.exports = {
 	checkForNew: function () {
         rss_param.last_update = Date.now();
-        rss_param.sources.forEach(source => {
+        rss_param.feed_read = 0;
+        rss_param.sources.forEach((source) => {
             /**
 		    * Using [https://github.com/scripting/feedRead/blob/master/examples/readurl/read.js](davefeedread)
 		    * Based on [https://github.com/danmactough/node-feedparser](node-feedparser)
@@ -30,12 +31,6 @@ function updateArticles(feed, source) {
     var articles = [];
     source.info.new_articles = 0;
 
-    var articles_load = () => {
-        if(feed.items[0])
-            source.info.last_title = feed.items[0].title;
-        updateRSSdone(source.parameter_name, articles);
-    };
-
     //Cheking if there is last article
     for(var i=0; i<feed.items.length; i++) {
         var item = feed.items[i];
@@ -47,26 +42,36 @@ function updateArticles(feed, source) {
             source.info.new_articles = i+1;
         }
     }
-    
-    if(source.info.new_articles == 0)
-        refreshDOM(rss_param);
+    source.info.total_articles += source.info.new_articles;
 
-    //Get every items from RSS feed
-    for(var i=0; i<source.info.new_articles; i++) {
-        var item = feed.items[i];
-        var link = item.link;
-        
-        scrape.fromUrl(link, source.parameter_name, function(data) {
-            articles.push(data);
-            //If we reach the end of the feed
-            if(articles.length == source.info.new_articles) {
-                source.info.total_articles += source.info.new_articles;
-                articles_load();
-            }
-        });
+    if(feed.items[0]) {
+        source.info.last_title = feed.items[0].title;
+    }  
+
+    if(source.info.new_articles == 0) {
+        rss_param.feed_read++;
+        refreshDOM(rss_param);
+    }
+    else {
+        //Get every new items from RSS feed
+        for(var i=0; i<source.info.new_articles; i++) {
+            var item = feed.items[i];
+            var link = item.link;
+
+            scrape.fromUrl(link, source.parameter_name, function(data) {
+                articles.push(data);
+                //If we reach the end of the feed
+                if(articles.length == source.info.new_articles) {
+                    rss_param.feed_read++;
+                    if(rss_param.feed_read == rss_param.sources.length)
+                        updateRSSdone(source.parameter_name, articles);
+                }
+            });
+        }
     }
 }
 
+//Broken -> never call
 function updateRSSdone(name, articles) {
     //Save param
     fs.writeFile("./ressources/app/RSSreader.json", JSON.stringify(rss_param, null, 2), function(err) {

@@ -8,7 +8,7 @@ const fs = require('fs');
  * - info : to navigate on the site
  * - articles[] that old every article that have been process
  */
-var scrape_target = require('../ressources/app/HTMLscraper.json');
+var scrape_target = require('../ressources/conf/HTMLscraper.json');
 
 var articles = [];
 var name = '';
@@ -26,7 +26,6 @@ module.exports = {
         var target = scrape_target[target_name];
         var page_load = function(html) {
             var content = cheerio.load(html);
-
             var queries = (target.query_page)? target.query_page : target.query_rss;
             var data = getDataFromHtml(content, queries, data);
             data.link = url;
