@@ -1,0 +1,174 @@
+IP 24,IP 33,IP 09	mapping disulfide bridges antifreeze proteins overwintering larvae beetle dendroides canadensis
+IP 10,IP 30,IP 23,IP 22	water loss gas exchange eggs manduca sexta trading costs benefits
+IP 10,IP 24,IP 15	copulation corrupts immunity mechanism cost mating insects
+IP 10,IP 21,IP 34	corticosterone inhibits feather growth potential mechanism explaining seasonal regulation corticosterone molt
+IP 03,IP 04,IP 15,IP 08	running faster causes disaster tradeoffs speed manoeuvrability motor control running around corners northern quolls dasyurus hallucatus
+	increased toxicity karenia brevis phosphate limited growth ecological evolutionary implications
+IP 32,IP 24,IP 22	bacterial bioluminescence lure marine zooplankton fish
+IP 14,IP 25,IP 08	flight performance rotary seeds
+IP 13,IP 01	motor brake two leg extensor muscles acting joint manage energy differently running insect
+IP 35,IP 23,IP 15,IP 09	adaptive changes prey vulnerability shape response predator populations mortality
+IP 10,IP 15,IP 09	decoupled leaf stem economics rain forest trees
+IP 23,IP 05,IP 15,IP 09	costs tradeoffs grazerinduced defenses scenedesmus deficient resource
+IP 24	differential lipid biosynthesis underlies tradeoff reproduction flight capability wingpolymorphic cricket
+IP 10,IP 35,IP 38	encephalization expensive tissues energetics examination relative costs brain size strepsirrhines
+IP 10,IP 34,IP 09	drought resistance early late secondary successional species tropical dry forest interplay xylem resistance embolism sapwood water storage leaf shedding
+IP 31,IP 30,IP 13	xylem wall collapse waterstressed pine needles
+IP 14,IP 04,IP 15	organization octopus arm movements model system studying control flexible arms
+IP 10,IP 02,IP 12	biophysical properties pelt diurnal marsupial numbat myrmecobius fasciatus role thermoregulation
+IP 21,IP 32,IP 24,IP 26	cryptic coloration mirrored sides camouflage strategies nearsurface pelagic habitats implications foraging predator avoidance
+,IP 12,IP 11	interspecific competition natural plant communities mechanisms tradeoffs plantsoil feedbacks
+IP 24,IP 35,IP 12	nosehouse heatconserving ventilators based nasal counterflow exchangers
+IP 40,IP 35,IP 11	hydraulic efficiency compromises compression strength perpendicular grain norway spruce trunkwood
+IP 32,IP 24,IP 23,IP 38	oxidation handicap hypothesis carotenoid allocation tradeoff
+IP 32,IP 01,IP 26	camouflaged tanned plasticity freshwater snail pigmentation
+IP 02,IP 35,IP 22	stem responses damage evolutionary ecology quercus species contrasting fire regimes
+IP 32,IP 30,IP 05,IP 04	brightwhite beetle scales optimise multiple scattering lightrdfsliteral
+IP 03,IP 01,IP 05,IP 15	coincidence detection singlephoton responses inner retina sensitivity limit vision
+IP 14,IP 25,IP 18,IP 04	mechanical basis drosophila audition
+IP 18,IP 05	dolphin sonarmodelling new receiver concept
+IP 24	takeoutdependent longevity associated altered juvenile hormone signaling
+IP 23,IP 26	sons learn songs social fathers cooperatively breeding bird
+IP 10,IP 11	nontargeted metabolomics approach quantifying differences root storage fast slowgrowing plants
+IP 10,IP 35,IP 23,IP 15	investment defensive traits anuran prey lithobates pipiens mediated starvationpredation risk tradeoff
+IP 32,IP 24,IP 01	backgroundmatching disruptive coloration evolution cryptic coloration
+IP 40,IP 24,IP 01,IP 29	characterisation slime gland secretion peripatus euperipatoides kanangrensisi onychophora peripatopsidae
+IP 10,IP 24,IP 22	stressinduced tradeoffs freeliving lizard across variable landscape consequences individuals populations
+IP 25,IP 02,IP 11	differences social behaviour groupliving solitary african striped mice rhabdomys pumilio
+	carotenoid tradeoff parasitic resistance sexual display experimental study blackbird turdus merula
+IP 18,IP 15,IP 19	cockroaches breathe discontinuously reduce respiratory water loss
+IP 21,IP 32,IP 12,IP 15	camouflage escape decisions common chameleon chamaeleo chamaeleon
+IP 31,IP 09	chilies hot tradeoff limits pungency
+IP 24,IP 35,IP 23,IP 34	yield experimental yeast populations declines selection
+IP 35,IP 23,IP 05,IP 15	rod phototransduction determines tradeoff temporal integration speed vision darkadapted toads
+IP 32,IP 15,IP 09	ecological modulation plant defense via phytochrome control jasmonate sensitivity
+IP 35,IP 11,IP 15	cuticle strength sizedependence safety factors cancer crab claws
+IP 22,IP 15	artificial selection relative brain size guppy reveals costs benefits evolving larger brain
+IP 10,IP 21,IP 13,IP 35	tradeoff steady unsteady swimming underlies predatordriven divergence gambusia affinis
+IP 11,IP 22	purine folate metabolism potential target sexspecific nutrient allocation drosophila implication lifespanreproduction tradeoff
+IP 13,IP 11	spider web sticky tensile mechanics constrains evolution capture spiral stickiness orbweaving spiders
+IP 31,IP 40,IP 14,IP 01,IP 22	wood one natures challenging composites
+IP 22,IP 39	plant sex evolution plant defenses herbivores
+IP 38,IP 15	experimental demonstration growth ratelifespan tradeoff
+IP 06,IP 05	speeddifficulty tradeoff speech chinese versus english
+IP 17,IP 04,IP 15,IP 08,IP 19	surface tension transport prey feeding shorebirds capillary ratchet
+IP 03,IP 14,IP 02	mesoscale vortices paradox plankton
+IP 40,IP 13,IP 01,IP 22	fracture mechanisms strombus gigas conch shell implications design brittle laminates
+IP 40,IP 03,IP 01,IP 05	branching toughens fibrous networks
+,IP 15	tradeoffs associated constitutive induced plant resistance herbivory
+IP 11,IP 05,IP 16	tradeoffs bacteriophage life histories
+IP 23,IP 04,IP 15	biomechanical design longterm stability trees morphological wood traits involved balance weight increase gravitropic reaction
+IP 31,IP 23,IP 11	hydraulic limits maximum plant transpiration emergence safetyefficiency tradeoff
+IP 24,IP 05,IP 15	neural mechanisms speedaccuracy tradeoff
+IP 10,IP 21,IP 28,IP 15	trapjaw mechanism dacetine ants daceton armigerum strumigenys sp
+IP 10,IP 09	leafherbivore attack reduces carbon reserves regrowth roots via jasmonate auxin signaling
+IP 05,IP 15	optimality sensory processing speedaccuracy tradeoff
+IP 29,IP 17,IP 15,IP 08	adhesion detachment toe pads tree frogs
+IP 35,IP 05,IP 16,IP 15	evolution competitive ability adaptation speed vs accuracy tradeoff rooted gene network size
+IP 30,IP 14,IP 22	finite element modeling shell shape freshwater turtle pseudemys concinna reveals tradeoff mechanical strength hydrodynamic efficiency
+IP 35,IP 22,IP 15	protein stability new functions trade
+IP 14,IP 25,IP 05	triangular core universal strategy stiff nanostructures biology biologically inspired materials
+IP 23,IP 11,IP 09	tradeoff lightharvesting photoprotective functions fucoxanthinchlorophyll proteins dominates light acclimation emiliania huxleyi clone ccmp 1516
+IP 22,IP 29,IP 04,IP 15	stability versus maneuverability aquatic locomotion
+IP 03,IP 23,IP 15	tradeoff stability multispecificity design promiscuous proteins
+IP 10,IP 12,IP 18,IP 15	frequency tuning animal locomotion
+IP 31,IP 40,IP 11,IP 22	sea urchin spines modelsystem permeable lightweight ceramics graceful failure behavior part mechanical behavior sea urchin spines compression
+IP 21,IP 38	hostsize mediated tradeoff parasitoid sclerodermus harmandi
+IP 32,IP 35,IP 01	physical basis transparency biological tissue ultrastructure minimization light scattering
+IP 03,IP 11,IP 22,IP 15	sperm velocity longevity trade influence fertilization sea urchin lytechinus variegatus
+IP 03,IP 05,IP 15	tradeoff travel distance prioritization highreward sites traplining bumblebees
+IP 31,IP 18	transmission vibration across honeycombs detection bee leg receptors
+IP 14,IP 01,IP 17,IP 08	tubercles humpback whales flippers application bioinspired technology
+IP 24,IP 04,IP 08,IP 19	crawling beneath free surface water snail locomotion
+IP 03,IP 11,IP 19	differences timing germination reproduction relate growth physiology population dynamics sonoran desert winter annuals
+IP 38,IP 09	covariation chemical mechanical defenses lima bean phaseolus lunatus l
+IP 13,IP 01,IP 05,IP 04	mechanism drilling wood wasp ovipositors
+IP 03,IP 22,IP 15	grazing turbulent environment energy dissipation encounter rates efficacy feeding currents centropages hamatus
+IP 40,IP 13,IP 24,IP 01	spider silk novel high performance biomimetic muscle driven humidity
+IP 24,IP 09	brassinosteroids inhibit pathogenassociated molecular patterntriggered immune signaling independent receptor kinase bak1
+IP 26,IP 09	chemical defenses resource tradeoffs structure sponge communities caribbean coral reefs
+IP 40,IP 35,IP 11,IP 15	many adaptations bone
+,IP 14	wettolerant adhesive patch inspired protuberances suction cups octopi
+IP 11,IP 26,IP 09	tradeoff mechanisms shaping diversity bacteria
+IP 01,IP 23,IP 34,IP 15	army ants dynamically adjust living bridges response costbenefit tradeoff
+IP 10,IP 21,IP 23,IP 15	attack attacked sensory fluid mechanical constraints copepods predatorprey interactions
+IP 03,IP 01,IP 33,IP 05	fundamental tradeoff covalent switching circumvention enzyme bifunctionality glucose homeostasis
+IP 40,IP 05,IP 15,IP 37	composition morphology mechanics hagfish slime
+IP 30,IP 40,IP 29,IP 15	penises variablevolume hydrostatic skeletons
+IP 13,IP 01,IP 09	bend coralline effect joint morphology flexibility stress amplification articulated calcified seaweed
+IP 40,IP 34,IP 17	many adaptations bone
+IP 10,IP 31,IP 35	incidence mechanical significance pneumatization long bones birds
+IP 35,IP 22,IP 05,IP 16	low forcegenerating ability unusually high temperature dependency hummingbird flight muscle fibers
+IP 21,IP 11,IP 38	experimental demonstration growth ratelifespan tradeoff
+IP 20,IP 34,IP 28,IP 05	tradeoff aerobic capacity locomotor capability antarctic pteropod
+IP 02,IP 16,IP 15	competition among body parts development evolution insect morphology
+IP 13,IP 01,IP 11	theory sensorimotor skills learned retained noisy nonstationary neural circuits
+IP 03,IP 38	cost reproduction queensland fruit fly ymodel versus lethal protein hypothesis
+IP 21,IP 34,IP 11	physiological mechanisms underlying tradeoff growth rate tolerance feed deprivation european sea bass dicentrarchus labrax
+IP 03,IP 35,IP 01,IP 26	hiding opaque eyes transparent organisms potential role larval eyeshine stomatopod crustaceans
+IP 31,IP 15,IP 09	tradeoff mechanisms shaping diversity bacteria
+IP 02,IP 23,IP 05	noise cost speedaccuracy tradeoffs decisionmaking decentralized system
+,IP 02,IP 35,IP 07	noise filtering tradeoffs spatial gradient sensing cell polarization response
+IP 25,IP 11,IP 15	tradeoff mechanisms shaping diversity bacteria
+IP 21,IP 22,IP 16,IP 19	trading force speed superfast crossbridge kinetics leads superlow forces
+IP 30,IP 02,IP 01,IP 22	built break antenna primitive insect petrobius brevistylis archaeognatha
+IP 23,IP 18,IP 15,IP 19	resonators insect sound production insects produce loud puretone songs
+IP 23,IP 22	tradeoff immunocompetence sexual ornamentation domestic fowl
+IP 31,IP 23,IP 18	acoustics small australian burrowing cricket control lowfrequency puretone songs
+IP 14,IP 13	reorientation daffodil narcissus amaryllidaceae flowers wind drag reduction torsional flexibility
+IP 34,IP 11,IP 22	leg regeneration stunts wing growth hinders flight performance stick insect sipyloidea sipylus
+IP 13,IP 01	shapes krill swarms fish schools emerge aggregation members avoid predators access oxygen
+IP 32,IP 01,IP 11	costly carotenoids tradeoff predation infection risk
+IP 03,IP 02,IP 05	group dynamics zebra wildebeest woodland savanna effects predation risk habitat density
+IP 11,IP 19	speed versus endurance tradeoff plants leaves higher photosynthetic rates show stronger seasonal declines
+IP 23	nectar vs pollen loading affects tradeoff flight stability maneuverability bumblebees
+IP 13,IP 24,IP 11,IP 09	pleiotropic effects juvenile hormone ant queens escape reproductionimmunocompetence tradeoff
+IP 14,IP 17,IP 15	functional diversity among predators freshwater snail imposes adaptive tradeoff shell morphology
+IP 23,IP 22,IP 15,IP 09	antagonistic interactions honey bee bacterial symbionts implications disease
+	snell dwarf mutation pit1 dw increase life span mice
+IP 24,IP 35,IP 23,IP 15	metabolic constraint imposes tradeoff body size number brain neurons human evolution
+IP 21,IP 11,IP 09	tradeoff woundhealing chemical defenses among caribbean reef sponges
+IP 30,IP 03,IP 22	buckling region locust hindlegs contains resilin absorbs energy jumping kicking goes wrong
+IP 30,IP 14,IP 01,IP 29,IP 17	pattern formation shoots likely role minimal energy configurations tunica
+IP 13,IP 12,IP 08,IP 19	flow flexibility ii roles size shape determining wave forces bull kelp nereocystis luetkeana
+IP 20,IP 15,IP 09	compensatory mechanisms ameliorating fundamental tradeoff predator avoidance foraging
+IP 32,IP 40,IP 28,IP 26	unique form light reflector evolution signalling ovalipes crustacea decapoda portunidae
+IP 31,IP 40,IP 34	fatigue damage remodeling minimization skeletal weight
+IP 32,IP 22,IP 09	deepwater fish lightsabers dorsal spineassociated luminescence counterilluminating lanternshark
+IP 35,IP 01,IP 23,IP 15	raising yield potential wheat iii optimizing partitioning grain maintaining lodging resistance
+IP 32,IP 33,IP 09	nest site selection kentish plover suggests tradeoff nestcrypsis predator detection strategies
+IP 23,IP 15	egg sizenumber tradeoff decline oviposition site choice quality female pararge aegeria butterflies pay cost males present oviposition
+IP 10,IP 02,IP 01,IP 06,IP 15	understanding foldingfunction tradeoff proteins
+IP 02,IP 13,IP 23,IP 22	function wallfollowing behaviors mexican blind cavefish sighted relative mexican tetra astyanax
+IP 20,IP 40,IP 34,IP 22,IP 27	specific location zinc insect mandibles
+IP 32,IP 03,IP 26	tradeoff camouflage sexual dimorphism revealed uv digital imaging case australian mallee dragons ctenophorus fordi
+IP 23,IP 15	modulation feeding prey capture antlion myrmeleon crudelis
+IP 35,IP 01,IP 23,IP 15	tradeoff morphological convergence opportunistic diet behavior fish hybrid zone
+IP 40,IP 03,IP 13,IP 22	characterisation amyloid nanostructures natural adhesive unicellular subaerial algae
+IP 10,IP 15,IP 19	plasticity electric organ discharge waveform south african bulldog fish marcusenius pongolensis tradeoff male attractiveness predator avoidance
+IP 22,IP 04,IP 15,IP 19	muscles deal realworld loads influence length trajectory muscle performance
+IP 31,IP 40,IP 03,IP 29,IP 15	localized fluidization burrowing mechanics ensis directus
+IP 14,IP 05	thriving high hydrostatic pressure example ammonoids extinct cephalopods
+IP 32,IP 24,IP 04	optimal overlayer inspired photuris firefly improves lightextraction efficiency existing lightemitting diodes
+IP 01,IP 12,IP 15	elastic joints dermapteran hind wings materials wing folding
+IP 10,IP 30,IP 24,IP 12,IP 05	relationships among cell morphology intrinsic cell stiffness cellsubstrate interactions
+IP 10,IP 02,IP 15	seasonal migration determined tradeoff predator avoidance growth
+IP 23	testosterone mediate tradeoff nestling begging growth canary serinus canaria
+IP 23	tradeoff spatiotopy saccadic plasticity
+IP 10,IP 03,IP 15,IP 19	behavioral tradeoff estuarine larvae favors seaward migration minimizing visibility predators
+IP 03,IP 25,IP 01,IP 15	automatic aeroelastic devices wings steppe eagle aquila nipalensis
+IP 30,IP 03,IP 25,IP 15	flexural stiffness insect wings ii spatial distribution dynamic wing bending
+IP 31,IP 29,IP 15	respiratory evolution facilitated origin pterosaur flight aerial gigantism
+IP 30,IP 01,IP 27	pollen tube activated abscission zone stigma pearl millet structural physiological aspects
+IP 31,IP 01,IP 29	xylem traits mediate tradeoff resistance freezethawinduced embolism photosynthetic capacity overwintering evergreens
+IP 31,IP 30,IP 40,IP 01	chorionic plastron role eggs muscinae diptera
+IP 24,IP 01,IP 23,IP 15	countershading reflex cephalopods
+IP 32,IP 01	improved light extraction bioluminescent lantern photuris firefly lampyridae
+IP 10,IP 21,IP 17,IP 15	predicting threedimensional target motion archer fish determine catch dislodged prey
+IP 03,IP 01	areaheterogeneity tradeoff diversity ecological communities
+IP 20,IP 02,IP 23,IP 15	filterfeeding cruising swimming speeds basking sharks compared optimal models filterfeed slower predicted size
+IP 29,IP 09	test novel function ink sea hares
+IP 28,IP 09	presence aposematic warning coloration vascular plants southeastern ohio
+IP 10,IP 23,IP 15	consensus decision making ant myrmecina nipponica househunters combine pheromone trails quorum responses
+IP 10,IP 21,IP 05	extra dimension decisionmaking animals threeway tradeoff speed effort perunittime accuracy
+IP 10,IP 12,IP 15	mechanical power efficiency level walking different stride rates

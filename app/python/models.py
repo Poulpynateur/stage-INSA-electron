@@ -62,9 +62,8 @@ X = pad_sequences(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-
 '''
-    Keras : Neural Network -> 8% - 13% (?)
+    Keras : Neural Network
     https://blog.mimacom.com/text-classification/
     https://github.com/keras-team/keras/issues/741
 '''
@@ -90,7 +89,7 @@ results = model.evaluate(X_test, y_test, batch_size=batch_size, verbose=0)
 print(results)
 
 '''
-    sklearn : Decision Tree -> ?
+    sklearn : Decision Tree
 '''
 
 from sklearn.tree import DecisionTreeClassifier
@@ -103,7 +102,7 @@ results = classifier.score(X_test, y_test)
 print(results)
 
 '''
-    skmultilearn : Binary relevance with gaussianNB -> 93.9%
+    skmultilearn : Binary relevance with gaussianNB
 '''
 from skmultilearn.problem_transform import BinaryRelevance
 from sklearn.naive_bayes import GaussianNB
@@ -114,7 +113,7 @@ classifier.fit(X_train, y_train)
 print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Classifier Chain with gaussianNB -> 93.9%
+    skmultilearn : Classifier Chain with gaussianNB
 '''
 from skmultilearn.problem_transform import ClassifierChain
 from sklearn.naive_bayes import GaussianNB
@@ -125,7 +124,7 @@ classifier.fit(X_train, y_train)
 print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Label Powerset with gaussianNB -> 98.2%
+    skmultilearn : Label Powerset with gaussianNB
 '''
 from skmultilearn.problem_transform import LabelPowerset
 from sklearn.naive_bayes import GaussianNB
@@ -136,7 +135,7 @@ classifier.fit(X_train, y_train)
 print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : MLkNN -> 10.7%
+    skmultilearn : MLkNN
 '''
 from skmultilearn.adapt import MLkNN
 
@@ -151,3 +150,13 @@ print(classifier.score(X_test, y_test))
 import pickle
 with open('ressources/conf/LabelPowerset_clf.pkl', 'wb') as fout:
   pickle.dump((vectorizer, classifier, vectorizer, multilabel_binarizer), fout)
+
+'''
+    Import
+'''
+with open('ressources/conf/LabelPowerset_clf.pkl', 'rb') as fin:
+    vectorizer, classifier, vectorizer, multilabel_binarizer = pickle.load(fin)
+
+for article in target :
+    vect = vectorizer.transform([clean_text(article['title'])])
+    print(multilabel_binarizer.inverse_transform(classifier.predict(vect).toarray()))

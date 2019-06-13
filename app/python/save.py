@@ -37,12 +37,12 @@ train_principes = []
 test_data = []
 
 for article in training:
-    if 'abstract_annotation' in article:
-        train_data.append(clean_text(article['abstract_annotation']))
+    if 'title_annotation' in article:
+        train_data.append(clean_text(article['title_annotation']))
         train_principes.append(article['use_the_principles'])
 
 for article in test:
-    test_data.append(clean_text(article['abstract']))
+    test_data.append(clean_text(article['title']))
 
 '''
     PREPROCESSING with sklearn
@@ -61,32 +61,19 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 cosine_results = cosine_similarity(test_tfidf, train_tfidf)
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+outArray = []
+for i in range(0, 40):
+    data = test_data[i]
+    cosine = cosine_results[i]
 
-def ecdf(data):
-    """Compute ECDF for a one-dimensional array of measurements."""
-    # Number of data points: n
-    n = len(data)
-    # x-data for the ECDF: x
-    x = np.sort(data)
-    # y-data for the ECDF: y
-    y = np.arange(1, n+1) / n
+    principes_weigth = np.c_[cosine, train_principes]
+    principes_weigth_sorted = np.sort(principes_weigth, axis=0)[::-1]
 
-    return x, y
+    outObject = {}
+    for j in range(0, principes_weigth_sorted.shape[0]):
+        outObject[principes_weigth_sorted[j][0]] = principes_weigth_sorted[j][1]
+    
+    outArray.append({'data': data, 'cosine_similarity': outObject})
 
-sns.set()
-
-for cosine in cosine_results[34:36]:
-    x, y = ecdf(cosine)
-    plt.plot(x, y, marker=".", linestyle="none")
-
-    samples_exp = np.random.exponential(np.mean(cosine), size=10000)
-    samples_norm = np.random.normal(np.mean(cosine), np.std(cosine), size=10000)
-
-    x, y = ecdf(samples_exp)
-    plt.plot(x, y)
-    x, y = ecdf(samples_norm)
-    plt.plot(x, y)
-
-plt.show()
+with open('data.json', 'w') as outfile:  
+    json.dump(outArray, outfile, indent=4, ensure_ascii=False)

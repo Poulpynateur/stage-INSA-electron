@@ -4,7 +4,9 @@ const fs = require('fs');
 const timeOutSecs = 30;
 
 var scrape = require('./HTMLscraper.js');
-var rss_param = require('../ressources/conf/RSSreader.json');
+
+const rss_param_path = '../ressources/conf/RSSreader.json';
+var rss_param = require(rss_param_path);
 
 module.exports = {
 	checkForNew: function () {
@@ -63,22 +65,23 @@ function updateArticles(feed, source) {
                 //If we reach the end of the feed
                 if(articles.length == source.info.new_articles) {
                     rss_param.feed_read++;
+                    updateArticlesDone(source.parameter_name, articles);
                     if(rss_param.feed_read == rss_param.sources.length)
-                        updateRSSdone(source.parameter_name, articles);
+                        saveParam(rss_param);
                 }
             });
         }
     }
 }
 
-//Broken -> never call
-function updateRSSdone(name, articles) {
-    //Save param
-    fs.writeFile("./ressources/app/RSSreader.json", JSON.stringify(rss_param, null, 2), function(err) {
+function writeFile(path, data) {
+    fs.writeFile(path, data, function(err) {
         if(err)
             return console.error(err);
     });
+}
 
+function updateArticlesDone(name, articles) {
     //Save results
     var path = "./ressources/app/output/rss/save/" + name + ".rss.json";
     if(fs.existsSync(path)) {
@@ -88,30 +91,25 @@ function updateRSSdone(name, articles) {
                 return;
             }
             var data = articles.concat(JSON.parse(content));
-            fs.writeFile(path, JSON.stringify(data), function(err) {
-                if(err)
-                    return console.error(err);
-            });
+            writeFile(path, JSON.stringify(data));
         });
     }
     else {
-        fs.writeFile(path, JSON.stringify(articles), function(err) {
-            if(err)
-                return console.error(err);
-        });
+        writeFile(path, JSON.stringify(articles));
     }
-
-    fs.writeFile("./ressources/app/output/rss/" + name + ".rss.json", JSON.stringify(articles), function(err) {
-        if(err)
-            return console.error(err);
-    });
+    writeFile("./ressources/app/output/rss/" + name + ".rss.json", JSON.stringify(articles));
 
     refreshDOM(rss_param);
 }
 
+function saveParam(rss_param) {
+    //Save param
+    writeFile('ressources/conf/RSSreader.json', JSON.stringify(rss_param, null, 2));
+}
+
 function refreshDOM(param) {
     if(!param)
-        var param = JSON.parse(fs.readFileSync('./ressources/app/RSSreader.json'));
+        var param = JSON.parse(fs.readFileSync("ressources/conf/RSSreader.json"));
     
     var sources = param.sources;
     var timestamp = param.last_update;
