@@ -2,18 +2,16 @@
  * ViewManager.js
  * 
  * Used to update/refresh the interface (HTML file).
- * It's only for visual, you don't have to worry for this.
+ * It's only for the visual, you don't have to worry about this.
  */
 
 module.exports = {
     scraping: {
         refresh: function(domain_url) {
-            //Reset render
             $('#scrapping_done').addClass('d-none');
             $('#scrapping_in_process').addClass('d-none');
             $('#scrapping_status_total').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
             
-            //Refresh the DOM
             $('#site_name').text(domain_url);
             $('#main_scrapper').removeClass('d-none');
         },

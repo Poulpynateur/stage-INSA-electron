@@ -23,6 +23,18 @@ module.exports = {
             //If the target is in conf file
             initiScrape(scrape_target[name]);
         }
+    },
+    fromUrl: function(url, target_name, callback) {
+        var target = scrape_target[target_name];
+        var page_load = function(html) {
+            var content = cheerio.load(html);
+            var queries = (target.query_page)? target.query_page : target.query_rss;
+            var data = getDataFromHtml(content, queries, data);
+            data.link = url;
+            
+            callback(data);
+        };
+        requestToUrl(url, page_load, page_load);
     }
 };
 
@@ -257,7 +269,7 @@ function getDataFromHtml(content, queries, article) {
              * - Apply a regex match/replace on the result
              * - Want to get a specific attribute from the HTML element (as href for links)
              */
-            
+
             if(queries[key].regex) {
                 var text = readContentFromQuery(content, queries[key].query, article).match(queries[key].regex);
                 if(text && text[0])

@@ -1,3 +1,10 @@
+/**
+ * RSSreader.js
+ * 
+ * Load the RSS feed and check for new articles.
+ * Use *HTMLscraper.js* to scrape the new articles.
+ * */
+
 const feedRead = require("davefeedread");
 
 const view = require('./ViewManager.js');
@@ -30,14 +37,21 @@ module.exports = {
     }
 };
 
+/**
+ * Check for new articles and load then
+ * 
+ * @param {Object} feed represent the RSS feed
+ * @param {Object} source setting object from conf file
+ */
 function updateArticles(feed, source) {
     var articles = [];
     source.info.new_articles = 0;
 
-    //Cheking if there is last article
+    //Looking if we found the last article we load in the list
     for(var i=0; i<feed.items.length; i++) {
         var item = feed.items[i];
         if(item.title == source.info.last_title) {
+            //If we found the last loaded article we stop
             source.info.new_articles = i;
             break;
         }
@@ -47,34 +61,42 @@ function updateArticles(feed, source) {
     }
     source.info.total_articles += source.info.new_articles;
 
+    //We set the the newest article from this feed as the need last article
     if(feed.items[0]) {
         source.info.last_title = feed.items[0].title;
     }  
 
+    //If there is no new articles
     if(source.info.new_articles == 0) {
         rss_param.feed_read++;
         view.rss.refresh(rss_param);
     }
     else {
-        //Get every new items from RSS feed
+        //Get every new items from RSS feed, every item is an article
         for(var i=0; i<source.info.new_articles; i++) {
             var item = feed.items[i];
             var link = item.link;
 
+            //We scrape then as we did before with the old articles
             scrape.fromUrl(link, source.parameter_name, function(data) {
                 articles.push(data);
                 //If we reach the end of the feed
                 if(articles.length == source.info.new_articles) {
                     rss_param.feed_read++;
-                    updateArticlesDone(source.parameter_name, articles);
+
                     if(rss_param.feed_read == rss_param.sources.length)
                         files.param.saveRSS(rss_param);
+
+                    updateArticlesDone(source.parameter_name, articles);
                 }
             });
         }
     }
 }
 
+/**
+ * Save param and refresh the view
+ */
 function updateArticlesDone(name, articles) {
     files.save_article.rss(name, articles);
     view.rss.refresh(rss_param);

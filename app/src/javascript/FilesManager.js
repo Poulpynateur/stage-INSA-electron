@@ -1,5 +1,5 @@
 /**
- * ViewManager.js
+ * FilesManager.js
  * 
  * Used to interact with the app files
  */
