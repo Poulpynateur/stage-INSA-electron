@@ -1,1 +1,4 @@
-# ressources/app/output/
+*.articles.json
+*.rss.json
+
+node_modules/

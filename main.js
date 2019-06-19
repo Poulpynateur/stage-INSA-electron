@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
-const iconPath = path.join(__dirname, '/ressources/app/images/icon.png');
+
+const iconPath = path.join(__dirname, '/ressources/images/icon.png');
 
 let mainWindow = null;
 let appIcon = null;
@@ -16,7 +17,7 @@ function showWindow() {
             }
         });
     
-        mainWindow.loadFile('./app/html/index.html');
+        mainWindow.loadFile('./app/src/index.html');
         mainWindow.toggleDevTools();
 
         mainWindow.on('minimize',function(event){
