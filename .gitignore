@@ -2,6 +2,5 @@
 *.rss.json
 
 # Python cache file
-*.pyc
-
 node_modules/
+__pycache__/

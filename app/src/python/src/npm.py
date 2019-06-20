@@ -39,9 +39,11 @@ def clean(test, training, training_field, test_field):
         if training_field in article:
             train_data.append([clean_text(article[training_field]), article['use_the_principles']])
 
+    # Same here
     for article in test:
         test_data.append(clean_text(article[test_field]))
 
+    # Return numpy arrays
     return np.array(train_data), np.array(test_data)
 
 '''
@@ -50,9 +52,13 @@ def clean(test, training, training_field, test_field):
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def vectorizerTFIDF(train_data, test_data):
+
     vectorizer = TfidfVectorizer()
+    # Add the words of train set to the vector dictionnary
+    # return a TF-IDF vector of the train set
     train_tfidf = vectorizer.fit_transform(train_data)
 
+    # return a TF-IDF vector of the test set
     test_tfidf = vectorizer.transform(test_data)
     
     return train_tfidf, test_tfidf

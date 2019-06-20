@@ -1,13 +1,13 @@
 {
-  "last_update": 1560933842780,
+  "last_update": 1561034563294,
   "sources": [
     {
       "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
       "parameter_name": "iopscience.iop.org",
       "info": {
-        "last_title": "Numerical prediction of aerodynamic performance for a flying fish during gliding flight",
-        "new_articles": 0,
-        "total_articles": 10
+        "last_title": "Umbrella leaves—Biomechanics of transition zone from lamina to petiole of peltate leaves",
+        "new_articles": 1,
+        "total_articles": 11
       }
     },
     {
@@ -32,18 +32,18 @@
       "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
       "parameter_name": "sciencemag.org",
       "info": {
-        "last_title": "Global survey finds strong support for scientists",
-        "new_articles": 6,
-        "total_articles": 30
+        "last_title": "These are the countries that trust scientists the most—and the least",
+        "new_articles": 10,
+        "total_articles": 40
       }
     },
     {
       "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
       "parameter_name": "scientificamerican.com",
       "info": {
-        "last_title": "\"Flesh-Eating\" Bacteria May Be Spreading to Beaches Once Thought Off-Limits",
-        "new_articles": 3,
-        "total_articles": 88
+        "last_title": "From Two Bulls, 9 Million Dairy Cows",
+        "new_articles": 25,
+        "total_articles": 113
       }
     }
   ],
