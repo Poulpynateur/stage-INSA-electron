@@ -5,12 +5,15 @@
  * Use the conf files to extract data.
  * */
 
+ //Internal modules
 const cheerio = require('cheerio');
 
 const view = require('./ViewManager.js');
 const files = require('./FilesManager.js');
 
+//Parameters
 var scrape_target = files.param.scrape;
+
 
 var articles = [];
 var name = '';

@@ -6,11 +6,13 @@
 
 const {shell} = require('electron');
 
+//Internal modules
 const files = require('./FilesManager.js');
 
 const scrape = require('./HTMLscraper.js');
 const rss = require('./RSSreader.js');
 
+//Parameters
 var scrape_param = files.param.scrape;
 
 /**** On page ready event ****/

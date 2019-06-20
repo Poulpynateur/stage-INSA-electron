@@ -2,5 +2,8 @@
 *.rss.json
 
 # Python cache file
-node_modules/
 __pycache__/
+
+node_modules/
+
+.vscode/

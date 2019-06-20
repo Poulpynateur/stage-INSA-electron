@@ -7,11 +7,13 @@
 
 const feedRead = require("davefeedread");
 
+//Internal modules
 const view = require('./ViewManager.js');
 const files = require('./FilesManager.js');
 
 const scrape = require('./HTMLscraper.js');
 
+//Parameters
 var rss_param = files.param.rss;
 
 module.exports = {

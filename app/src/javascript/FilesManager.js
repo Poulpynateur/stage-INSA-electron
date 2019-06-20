@@ -25,6 +25,12 @@ module.exports = {
             writeFile(archive_path + name + ".articles.json", JSON.stringify(articles), callback);
         },
         rss: function(name, articles) {
+
+            /**
+             * If the file does not exist, create a new one
+             * Else take the existing file and add the new content
+             */
+
             var path = rss_path + name + ".rss.json";
             if(fs.existsSync(path)) {
                 fs.readFile(path, 'utf-8', function (err, content) {
