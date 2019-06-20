@@ -1,5 +1,12 @@
+'''
+    Show a graph that represent the cosine result on X axis
+    The principles associated to the cosine result are shown on hover
+
+    Origin : [https://stackoverflow.com/questions/7908636/possible-to-make-labels-appear-when-hovering-over-a-point-in-matplotlib]
+'''
+
 import matplotlib.pyplot as plt
-import numpy as np; np.random.seed(1)
+import numpy as np;
 
 def draw(x, y, names):
     norm = plt.Normalize(1,4)

@@ -1,14 +1,20 @@
 '''
     PREPROCESSING with sklearn
+
+    Transform abstracts into TF-IDF vector [https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html]
+    Transform principles into binary matrice [https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html]
 '''
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
-def preprocessingSklearn(abstracts, principes):
+def preprocessingSklearn(abstracts, principles):
+    
+    # Principles to binary matrice
     multilabel_binarizer = MultiLabelBinarizer()
-    y = multilabel_binarizer.fit_transform(principes)
+    y = multilabel_binarizer.fit_transform(principles)
 
+    # Abstracts to TF-IDF vectors
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(abstracts)
 
@@ -18,6 +24,9 @@ def preprocessingSklearn(abstracts, principes):
 
 '''
     PREPROCESSING with Keras
+
+    Transform abstracts into a token matrice [https://keras.io/preprocessing/text/]
+    Transform principles into binary matrice [https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html]
 '''
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.model_selection import train_test_split
@@ -25,14 +34,18 @@ from sklearn.model_selection import train_test_split
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 
-def preprocessingKeras(abstracts, principes):
+def preprocessingKeras(abstracts, principles):
+
+    # Principles to binary matrice
     multilabel_binarizer = MultiLabelBinarizer()
-    y = multilabel_binarizer.fit_transform(principes)
+    y = multilabel_binarizer.fit_transform(principles)
     classes = multilabel_binarizer.classes_
     
+    # Abstracts to Tokens
     max_words = 5000
     tokenizer = Tokenizer(num_words=max_words)
     tokenizer.fit_on_texts(abstracts)
+
     X = tokenizer.texts_to_sequences(abstracts)
     X = pad_sequences(X)
     
@@ -42,17 +55,21 @@ def preprocessingKeras(abstracts, principes):
 
 '''
     Keras : Neural Network
-    https://blog.mimacom.com/text-classification/
-    https://github.com/keras-team/keras/issues/741
+
+    Inspiration :
+        https://blog.mimacom.com/text-classification/
+        https://github.com/keras-team/keras/issues/741
+    
+    Based on the Sequential model of keras [https://keras.io/models/sequential/]
 '''
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.preprocessing import text, sequence
 from keras import utils
 
-def neuralNetwork(abstracts, principes):
+def neuralNetwork(abstracts, principles):
 
-    X_train, X_test, y_train, y_test, classes = preprocessingKeras(abstracts, principes)
+    X_train, X_test, y_train, y_test, classes = preprocessingKeras(abstracts, principles)
 
     batch_size=1
     epochs=50
@@ -70,14 +87,14 @@ def neuralNetwork(abstracts, principes):
     print(results)
 
 '''
-    sklearn : Decision Tree
+    sklearn : Decision Tree [https://scikit-learn.org/stable/modules/tree.html]
 '''
 
 from sklearn.tree import DecisionTreeClassifier
 
-def decisionTree(abstracts, principes):
+def decisionTree(abstracts, principles):
 
-    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principes)
+    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principles)
 
     classifier = DecisionTreeClassifier()
 
@@ -87,14 +104,14 @@ def decisionTree(abstracts, principes):
     print(results)
 
 '''
-    skmultilearn : Binary relevance with gaussianNB
+    skmultilearn : Binary relevance with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.br.html]
 '''
 from skmultilearn.problem_transform import BinaryRelevance
 from sklearn.naive_bayes import GaussianNB
 
-def binaryRelevance(abstracts, principes):
+def binaryRelevance(abstracts, principles):
 
-    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principes)
+    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principles)
 
     classifier = BinaryRelevance(GaussianNB())
     classifier.fit(X_train, y_train)
@@ -102,14 +119,14 @@ def binaryRelevance(abstracts, principes):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Classifier Chain with gaussianNB
+    skmultilearn : Classifier Chain with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.cc.html]
 '''
 from skmultilearn.problem_transform import ClassifierChain
 from sklearn.naive_bayes import GaussianNB
 
-def classifierChain(abstracts, principes):
+def classifierChain(abstracts, principles):
 
-    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principes)
+    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principles)
 
     classifier = ClassifierChain(GaussianNB())
     classifier.fit(X_train, y_train)
@@ -117,14 +134,14 @@ def classifierChain(abstracts, principes):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Label Powerset with gaussianNB
+    skmultilearn : Label Powerset with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.lp.html]
 '''
 from skmultilearn.problem_transform import LabelPowerset
 from sklearn.naive_bayes import GaussianNB
 
-def labelPowerset(abstracts, principes):
+def labelPowerset(abstracts, principles):
 
-    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principes)
+    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principles)
 
     classifier = LabelPowerset(GaussianNB())
     classifier.fit(X_train, y_train)
@@ -132,13 +149,13 @@ def labelPowerset(abstracts, principes):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : MLkNN
+    skmultilearn : MLkNN [http://scikit.ml/api/skmultilearn.adapt.mlknn.html]
 '''
 from skmultilearn.adapt import MLkNN
 
-def MLkNNmodel(abstracts, principes):
+def MLkNNmodel(abstracts, principles):
 
-    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principes)
+    X_train, X_test, y_train, y_test = preprocessingSklearn(abstracts, principles)
 
     classifier = MLkNN(k=20)
     classifier.fit(X_train, y_train)
@@ -146,14 +163,16 @@ def MLkNNmodel(abstracts, principes):
     print(classifier.score(X_test, y_test))
 
 '''
-    Saving
+    # SAVING
+    # Save a model in a file
 
 import pickle
 with open('ressources/conf/LabelPowerset_clf.pkl', 'wb') as fout:
   pickle.dump((vectorizer, classifier, vectorizer, multilabel_binarizer), fout)
 '''
 '''
-    Import
+    # IMPORT
+    # Import a saved model and use it for classification
 
 with open('ressources/conf/LabelPowerset_clf.pkl', 'rb') as fin:
     vectorizer, classifier, vectorizer, multilabel_binarizer = pickle.load(fin)

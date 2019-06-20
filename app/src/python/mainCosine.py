@@ -1,3 +1,5 @@
+# Main file to calculate cosine-similarity
+
 import src.npm as npm
 from sklearn.metrics.pairwise import cosine_similarity
 
