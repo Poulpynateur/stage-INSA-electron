@@ -1,4 +1,7 @@
 *.articles.json
 *.rss.json
 
+# Python cache file
+*.pyc
+
 node_modules/

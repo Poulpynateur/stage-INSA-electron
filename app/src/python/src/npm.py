@@ -5,9 +5,6 @@ import json
 import sys
 
 import numpy as np
-
-# Disable warning
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 '''
     LOADING and CLEANING
 '''
@@ -51,7 +48,7 @@ def clean(test, training, training_field, test_field):
 '''
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-def preprocessing(train_data, test_data):
+def vectorizerTFIDF(train_data, test_data):
     vectorizer = TfidfVectorizer()
     train_tfidf = vectorizer.fit_transform(train_data)
 
@@ -68,7 +65,7 @@ def ecdf(data):
 
     return data, y
 
-import graph
+import src.graph as graph
 def show(cosine, principes_names):
     sns.set()
 
