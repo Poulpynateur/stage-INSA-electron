@@ -24,7 +24,7 @@ npm start
 ```
 
 ## Files organisation
-- **main.js** : Manage the Electron app and events with the system
+- [main.js](main.js) : Manage the Electron app and events with the system
 - folder **vendor** : external dependancies
 - folder **ressources** : where the app stock files
 - folder **node_modules** : NPM dependancies
