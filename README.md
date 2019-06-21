@@ -25,7 +25,6 @@ npm start
 
 ## Files organisation
 - [main.js](main.js) : Manage the Electron app and events with the system
-- [vendor](/vendor) : external dependancies
-- folder **ressources** : where the app stock files
-- folder **node_modules** : NPM dependancies
-- folder **app** : App source code and configuration
+- [/vendor] : external dependancies (bootstrap CSS)
+- [/ressources] : where the app stock files
+- [/app] : App source code and configuration
