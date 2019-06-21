@@ -1,8 +1,8 @@
 '''
-    Show a graph that represent the cosine result on X axis
-    The principles associated to the cosine result are shown on hover
+Show a graph that represent the cosine result on X axis
+The principles associated to the cosine result are shown on hover
 
-    Origin : [https://stackoverflow.com/questions/7908636/possible-to-make-labels-appear-when-hovering-over-a-point-in-matplotlib]
+Origin : [https://stackoverflow.com/questions/7908636/possible-to-make-labels-appear-when-hovering-over-a-point-in-matplotlib]
 '''
 
 import matplotlib.pyplot as plt

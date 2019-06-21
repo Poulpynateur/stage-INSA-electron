@@ -19,7 +19,25 @@ def clean_text(text):
     return text
 
 '''
-    Load files from path, you must give the good encoding of the file to avoid unknow characters
+Load files from path, you must give the good encoding of the file to avoid unknow characters
+
+Parameters
+----------
+train_path : string
+    Path to the training set file (JSON format)
+train_encod : string
+    Encoding of the training set file
+test_path : string
+    Path to the test set file (JSON format)
+test_encod : string
+    Encoding of the test set file
+
+Returns
+-------
+test : object
+    Hold the test set
+training : object
+    Hold the training set
 '''
 def load_json(train_path, train_encod, test_path, test_encod):
     training = json.load(open(train_path, 'r', encoding=train_encod))
@@ -28,13 +46,31 @@ def load_json(train_path, train_encod, test_path, test_encod):
     return test, training
 
 '''
-    Reformat and clean the data coming from the load function
+Reformat and clean the data coming from the load function
+
+Parameters
+----------
+test : object
+    Hold the test set
+training : object
+    Hold the training set
+training_field : string
+    Name of the object field we want to train on
+test_field : string
+    Name of the object field we want to test
+
+Returns
+-------
+train_data : numpy array
+    Array with selected field in first column and associated principles in second column
+test_data : numpy array
+    Array of selected field
 '''
 def clean(test, training, training_field, test_field):
     train_data = []
     test_data = []
 
-    # Extracting the field that we want to evaluate with the associated principles
+    # Extracting the field that  with the associated principles
     for article in training:
         if training_field in article:
             train_data.append([clean_text(article[training_field]), article['use_the_principles']])
@@ -43,11 +79,24 @@ def clean(test, training, training_field, test_field):
     for article in test:
         test_data.append(clean_text(article[test_field]))
 
-    # Return numpy arrays
     return np.array(train_data), np.array(test_data)
 
 '''
-    Transform data to TF-IDF vectors
+Transform data to TF-IDF vectors
+
+Parameters
+----------
+train_data : numpy array
+    Array with only one column : selected field
+test_data : numpy array
+    Array of selected field
+
+Returns
+-------
+train_tfidf : numpy array
+    Array of TF-IDF vector
+test_tfidf : numpy array
+    Array of TF-IDF vector
 '''
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -64,8 +113,8 @@ def vectorizerTFIDF(train_data, test_data):
     return train_tfidf, test_tfidf
 
 '''
-    Compute ECDF for a one-dimensional array of measurements.
-    From [https://community.periscopedata.com/t/18bzry/test-for-normal-distribution-of-data-with-python]
+Compute ECDF for a one-dimensional array of measurements.
+From [https://community.periscopedata.com/t/18bzry/test-for-normal-distribution-of-data-with-python]
 '''
 def ecdf(data):
     n = len(data)
@@ -74,7 +123,14 @@ def ecdf(data):
     return data, y
 
 '''
-    Display the graph with a normal and a exponential representation
+Display the graph with a normal and a exponential representation
+
+Parameters
+----------
+cosine : numpy array
+    Array of cosine scores
+principles_names : numpy array
+    Array of associated principles
 '''
 import matplotlib.pyplot as plt
 import seaborn as sns

@@ -1,8 +1,17 @@
 '''
-    PREPROCESSING with sklearn
+Parameters are the same for every functions :
 
-    Transform abstracts into TF-IDF vector [https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html]
-    Transform principles into binary matrice [https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html]
+abstract : numpy array
+    Array of clean abstracts
+principles : numpy array
+    Array of associated principles
+'''
+
+'''
+PREPROCESSING with sklearn
+
+Transform abstracts into TF-IDF vector [https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html]
+Transform principles into binary matrice [https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html]
 '''
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -54,13 +63,13 @@ def preprocessingKeras(abstracts, principles):
     return X_train, X_test, y_train, y_test, classes
 
 '''
-    Keras : Neural Network
+Keras : Neural Network
 
-    Inspiration :
-        https://blog.mimacom.com/text-classification/
-        https://github.com/keras-team/keras/issues/741
-    
-    Based on the Sequential model of keras [https://keras.io/models/sequential/]
+Inspiration :
+    https://blog.mimacom.com/text-classification/
+    https://github.com/keras-team/keras/issues/741
+
+Based on the Sequential model of keras [https://keras.io/models/sequential/]
 '''
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
@@ -87,7 +96,7 @@ def neuralNetwork(abstracts, principles):
     print(results)
 
 '''
-    sklearn : Decision Tree [https://scikit-learn.org/stable/modules/tree.html]
+sklearn : Decision Tree [https://scikit-learn.org/stable/modules/tree.html]
 '''
 
 from sklearn.tree import DecisionTreeClassifier
@@ -104,7 +113,7 @@ def decisionTree(abstracts, principles):
     print(results)
 
 '''
-    skmultilearn : Binary relevance with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.br.html]
+skmultilearn : Binary relevance with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.br.html]
 '''
 from skmultilearn.problem_transform import BinaryRelevance
 from sklearn.naive_bayes import GaussianNB
@@ -119,7 +128,7 @@ def binaryRelevance(abstracts, principles):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Classifier Chain with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.cc.html]
+skmultilearn : Classifier Chain with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.cc.html]
 '''
 from skmultilearn.problem_transform import ClassifierChain
 from sklearn.naive_bayes import GaussianNB
@@ -134,7 +143,7 @@ def classifierChain(abstracts, principles):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : Label Powerset with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.lp.html]
+skmultilearn : Label Powerset with gaussianNB [http://scikit.ml/api/skmultilearn.problem_transform.lp.html]
 '''
 from skmultilearn.problem_transform import LabelPowerset
 from sklearn.naive_bayes import GaussianNB
@@ -149,7 +158,7 @@ def labelPowerset(abstracts, principles):
     print(classifier.score(X_test, y_test))
 
 '''
-    skmultilearn : MLkNN [http://scikit.ml/api/skmultilearn.adapt.mlknn.html]
+skmultilearn : MLkNN [http://scikit.ml/api/skmultilearn.adapt.mlknn.html]
 '''
 from skmultilearn.adapt import MLkNN
 
@@ -163,16 +172,16 @@ def MLkNNmodel(abstracts, principles):
     print(classifier.score(X_test, y_test))
 
 '''
-    # SAVING
-    # Save a model in a file
+# SAVING
+# Save a model in a file
 
 import pickle
 with open('ressources/conf/LabelPowerset_clf.pkl', 'wb') as fout:
   pickle.dump((vectorizer, classifier, vectorizer, multilabel_binarizer), fout)
 '''
 '''
-    # IMPORT
-    # Import a saved model and use it for classification
+# IMPORT
+# Import a saved model and use it for classification
 
 with open('ressources/conf/LabelPowerset_clf.pkl', 'rb') as fin:
     vectorizer, classifier, vectorizer, multilabel_binarizer = pickle.load(fin)

@@ -42,7 +42,7 @@ module.exports = {
 /**
  * Check for new articles and load then
  * 
- * @param {Object} < represent the RSS feed
+ * @param {Object} feed represent the RSS feed
  * @param {Object} source setting object from conf file
  */
 function updateArticles(feed, source) {

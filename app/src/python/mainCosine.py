@@ -9,6 +9,8 @@ test, training = npm.load_json(
 )
 
 train_data, test_data = npm.clean(test, training, 'title_annotation', 'title')
+
+#Passing only the selected fields to vectorizerTFIDF()
 train_tfidf, test_tfidf = npm.vectorizerTFIDF(train_data[:,0], test_data )
 
 cosine_results = cosine_similarity(test_tfidf, train_tfidf)
