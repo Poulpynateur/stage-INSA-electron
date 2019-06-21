@@ -25,6 +25,13 @@ npm start
 
 ## Files organisation
 - [main.js](main.js) : Manage the Electron app and events with the system
-- [/vendor] : external dependancies (bootstrap CSS)
-- [/ressources] : where the app stock files
-- [/app] : App source code and configuration
+- [/vendor](/vendor) : external dependancies (bootstrap CSS)
+- [/ressources](/ressources) : where the app stock files
+  - [/scraped](ressources/scraped) : Destination folder of the scraped files
+  - [/train](ressources/train) : Data used to train the classification algorithms
+- [/app](/app) : App source code and configuration
+  - [/conf](app/conf) : Configuration files for the javascript, used to scrap data
+  - [/src](app/src) : Source code of the app
+    - [/javascript](app/src/javascript) : code to scrap old and new articles
+    - [/python](app/src/pyhton) : code for classification and cosine-similarity
+    - [index.html](app/src/index.html) : interface displayed
