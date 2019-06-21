@@ -33,5 +33,5 @@ npm start
   - [/conf](app/conf) : Configuration files for the javascript, used to scrap data
   - [/src](app/src) : Source code of the app
     - [/javascript](app/src/javascript) : code to scrap old and new articles
-    - [/python](app/src/pyhton) : code for classification and cosine-similarity
+    - [/python](app/src/python) : code for classification and cosine-similarity
     - [index.html](app/src/index.html) : interface displayed
