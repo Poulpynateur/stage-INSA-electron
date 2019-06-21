@@ -1,12 +1,12 @@
 {
-  "last_update": 1561034563294,
+  "last_update": 1561106467975,
   "sources": [
     {
       "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
       "parameter_name": "iopscience.iop.org",
       "info": {
         "last_title": "Umbrella leaves—Biomechanics of transition zone from lamina to petiole of peltate leaves",
-        "new_articles": 1,
+        "new_articles": 0,
         "total_articles": 11
       }
     },
@@ -23,27 +23,27 @@
       "rss_url": "http://jeb.biologists.org/rss/current.xml",
       "parameter_name": "jeb.biologists.org.2019",
       "info": {
-        "last_title": "Salmonid gene expression biomarkers indicative of physiological responses to changes in salinity, temperature, but not dissolved oxygen [RESEARCH ARTICLE]",
-        "new_articles": 0,
-        "total_articles": 62
+        "last_title": "Sexually dimorphic swim bladder extensions enhance the auditory sensitivity of female plainfin midshipman fish, Porichthys notatus [RESEARCH ARTICLE]",
+        "new_articles": 4,
+        "total_articles": 66
       }
     },
     {
       "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
       "parameter_name": "sciencemag.org",
       "info": {
-        "last_title": "These are the countries that trust scientists the most—and the least",
-        "new_articles": 10,
-        "total_articles": 40
+        "last_title": "What big ideas will shape U.S. science over the next decade? Here are some contenders",
+        "new_articles": 8,
+        "total_articles": 48
       }
     },
     {
       "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
       "parameter_name": "scientificamerican.com",
       "info": {
-        "last_title": "From Two Bulls, 9 Million Dairy Cows",
-        "new_articles": 25,
-        "total_articles": 113
+        "last_title": "\"Missing\" Wallets with More Cash Are More Likely to Be Returned",
+        "new_articles": 5,
+        "total_articles": 118
       }
     }
   ],

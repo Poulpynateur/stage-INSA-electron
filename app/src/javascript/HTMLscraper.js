@@ -5,7 +5,7 @@
  * Use the conf files to extract data.
  * */
 
- //Internal modules
+//Internal modules
 const cheerio = require('cheerio');
 
 const view = require('./ViewManager.js');

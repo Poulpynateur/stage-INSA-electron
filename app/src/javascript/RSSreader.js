@@ -42,7 +42,7 @@ module.exports = {
 /**
  * Check for new articles and load then
  * 
- * @param {Object} feed represent the RSS feed
+ * @param {Object} < represent the RSS feed
  * @param {Object} source setting object from conf file
  */
 function updateArticles(feed, source) {
@@ -66,7 +66,7 @@ function updateArticles(feed, source) {
     //We set the the newest article from this feed as the need last article
     if(feed.items[0]) {
         source.info.last_title = feed.items[0].title;
-    }  
+    }
 
     //If there is no new articles
     if(source.info.new_articles == 0) {
