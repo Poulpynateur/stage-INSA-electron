@@ -11,10 +11,14 @@ To check that Node.js and npm are install :
 node -v
 npm -v
 ```
+Before using the application you have to update the dependancies. Launch the cmd in the main folder and use :
+```
+npm update
+```
 
 ### Running the app
 
-Open the cmd from the folder on the project, then use the following command :
+Open the cmd in the min folder of the project, then use the following command :
 ```
 npm start
 ```
