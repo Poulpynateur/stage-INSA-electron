@@ -13,7 +13,7 @@ train_data, test_data = nlp.clean(test, training, 'title_annotation', 'title')
 #Passing only the selected fields to vectorizerTFIDF()
 train_tfidf, test_tfidf = nlp.vectorizerTFIDF(train_data[:,0], test_data )
 
+#Return an array of cosine results
 cosine_results = cosine_similarity(test_tfidf, train_tfidf)
 
-index = 40;
 nlp.show(cosine_results[index] , train_data[:,1])

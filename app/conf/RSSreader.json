@@ -1,5 +1,5 @@
 {
-  "last_update": 1561106467975,
+  "last_update": 1561377854409,
   "sources": [
     {
       "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
@@ -23,27 +23,27 @@
       "rss_url": "http://jeb.biologists.org/rss/current.xml",
       "parameter_name": "jeb.biologists.org.2019",
       "info": {
-        "last_title": "Sexually dimorphic swim bladder extensions enhance the auditory sensitivity of female plainfin midshipman fish, Porichthys notatus [RESEARCH ARTICLE]",
-        "new_articles": 4,
-        "total_articles": 66
+        "last_title": "Transplanting gravid lizards to high elevation alters maternal and embryonic oxygen physiology, but not reproductive success or hatchling phenotype [RESEARCH ARTICLE]",
+        "new_articles": 0,
+        "total_articles": 67
       }
     },
     {
       "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
       "parameter_name": "sciencemag.org",
       "info": {
-        "last_title": "What big ideas will shape U.S. science over the next decade? Here are some contenders",
-        "new_articles": 8,
-        "total_articles": 48
+        "last_title": "Top stories: Jobs just for women, fish losing their senses, and the evolution of puppy dog eyes",
+        "new_articles": 0,
+        "total_articles": 53
       }
     },
     {
       "rss_url": "http://rss.sciam.com/ScientificAmerican-Global",
       "parameter_name": "scientificamerican.com",
       "info": {
-        "last_title": "\"Missing\" Wallets with More Cash Are More Likely to Be Returned",
-        "new_articles": 5,
-        "total_articles": 118
+        "last_title": "Virtual Reality Might Be the Next Big Thing for Mental Health",
+        "new_articles": 2,
+        "total_articles": 136
       }
     }
   ],

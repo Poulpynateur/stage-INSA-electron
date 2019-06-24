@@ -16,7 +16,6 @@ const rss = require('./RSSreader.js');
 var scrape_param = files.param.scrape;
 
 /**** On page ready event ****/
-
 $(document).ready(function() {
 	/**
 	 * Generate menu from conf file
@@ -26,7 +25,7 @@ $(document).ready(function() {
 		var option = $(document.createElement('option')).attr({"name": source, "value": site.info.domain_url}).text(site.full_name);
 		$('#target_site').append(option);
 	});
-
+	
 	/**
 	 * Check new articles in RSS feed :
 	 * - On start
@@ -35,7 +34,8 @@ $(document).ready(function() {
 	rss.checkForNew();
 	setInterval(function() {
 		 rss.checkForNew();
-	}, 7200000);
+	}, 3600000);
+
 });
 
 /**** On click buttons events ****/
@@ -50,4 +50,8 @@ $(document).on('click', '#navigate_to_site', function(event) {
 
 $(document).on('click', '#rss_test_launch', function(event) {
 	rss.checkForNew();
+});
+
+$(document).on('click', '#open_scraped_folder', function(event) {
+	files.openScrapedFolder();
 });

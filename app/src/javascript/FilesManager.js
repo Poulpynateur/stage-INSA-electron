@@ -5,16 +5,33 @@
  */
 
 const fs = require('fs');
+const path = require('path');
+const app = require('electron').remote.app;
+/**
+ * Production :
+ * const scraper_param_path = './resources/conf/HTMLscraper.json';
+ * const rss_param_path = './resources/conf/RSSreader.json';
+ **/
+const scraper_param_path = './resources/conf/HTMLscraper.json';
+const rss_param_path = './resources/conf/RSSreader.json';
 
-const rss_param_path = './app/conf/RSSreader.json';
-
-const archive_path = './ressources/scraped/archive/';
-const rss_path = './ressources/scraped/rss/';
+/**
+ * Production :
+ * const scraped_folder = '/resources/scraped';
+ * const archive_path = './resources/scraped/archive/';
+ * const rss_path = './resources/scraped/rss/';
+ */
+const scraped_folder = '/resources/scraped';
+const archive_path = './resources/scraped/archive/';
+const rss_path = './resources/scraped/rss/';
 
 module.exports = {
+    openScrapedFolder: function() {
+        require('child_process').exec('start "" "'+ path.join(app.getAppPath(), '../../' + scraped_folder) +'"');
+    },
     param: {
-        scrape: require('../../conf/HTMLscraper.json'),
-        rss: require('../../conf/RSSreader.json'),
+        scrape: readJSONFile(scraper_param_path),
+        rss: readJSONFile(rss_param_path),
 
         saveRSS: function(rss_param) {
             writeFile(rss_param_path, JSON.stringify(rss_param, null, 2));
@@ -48,6 +65,10 @@ module.exports = {
         }
     }
 };
+
+function readJSONFile(path) {
+    return JSON.parse(fs.readFileSync(path));
+}
 
 function writeFile(path, data, callback) {
     fs.writeFile(path, data, function(err) {

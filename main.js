@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 
+const AutoLaunch = require('auto-launch');
+
 const iconPath = path.join(__dirname, '/ressources/images/icon.png');
 
 let mainWindow = null;
@@ -18,6 +20,7 @@ function showWindow() {
         });
     
         mainWindow.loadFile('./app/src/index.html');
+
         mainWindow.toggleDevTools();
 
         mainWindow.on('minimize',function(event){
@@ -38,11 +41,23 @@ function showWindow() {
     }
 }
 
-
+/*
+app.setLoginItemSettings({
+    openAtLogin: arg.settings.startOnStartup,
+    path: electron.app.getPath("exe")
+});
+*/
 
 /* Close and open event */
 app.on('ready', function() {
-    //Check for RSS feed every two hours
+
+    let autoLaunch = new AutoLaunch({
+        name: 'rss-reader',
+        path: app.getPath('exe'),
+    });
+    autoLaunch.isEnabled().then((isEnabled) => {
+      if (!isEnabled) autoLaunch.enable();
+    });
 
     appIcon = new Tray(iconPath);
 

@@ -5,6 +5,24 @@ import numpy as np
 
 from nltk.corpus import stopwords
 
+'''
+Clean the text with the following rules :
+-	Lower text
+-	Replace punctuation and text separator by space (/(){}[]|@,;)
+-	Keep only latin characters
+-	Delete one letter words
+-	Delete stop words from the nltk.corpus.stopwords list
+
+Parameters
+----------
+    text : string
+        string to clean
+    
+Returns
+-------
+    text : string
+        cleaned string
+'''
 REPLACE_BY_SPACE_RE = re.compile('[/(){}\[\]\|@,;]')
 BAD_SYMBOLS_RE = re.compile('[^a-z ]')
 BAD_CHAR_RE = re.compile('\s[a-z]\s')
@@ -16,6 +34,7 @@ def clean_text(text):
     text = BAD_SYMBOLS_RE.sub('', text)                                         # delete symbols which are in BAD_SYMBOLS_RE from text
     text = BAD_CHAR_RE.sub(' ', text)                                           # delete characteres that are left alone (as 'c' from '40°C')
     text = ' '.join(word for word in text.split() if word not in STOPWORDS)     # delete stopwors from text
+    
     return text
 
 '''

@@ -4,5 +4,7 @@
 # Python cache file
 __pycache__/
 
+build/
+dist/
 node_modules/
 .vscode/

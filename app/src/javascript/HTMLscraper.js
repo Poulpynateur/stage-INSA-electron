@@ -45,6 +45,8 @@ module.exports = {
  * Generate URL from info
  * 
  * @param {Object} info of the actual source
+ * 
+ * @returns {string} String of the url (ex : https://domaine.com ...)
  */
 function getUrl(info) {
     var url = info.domain_url;
