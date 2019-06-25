@@ -1,13 +1,13 @@
 {
-  "last_update": 1561377854409,
+  "last_update": 1561384250673,
   "sources": [
     {
       "rss_url": "https://iopscience.iop.org/1748-3190/?rss=1",
       "parameter_name": "iopscience.iop.org",
       "info": {
         "last_title": "Umbrella leaves—Biomechanics of transition zone from lamina to petiole of peltate leaves",
-        "new_articles": 0,
-        "total_articles": 11
+        "new_articles": 10,
+        "total_articles": 10
       }
     },
     {
@@ -15,7 +15,7 @@
       "parameter_name": "academic.oup.com",
       "info": {
         "last_title": "Genetic insights into the modification of the pre-fertilization mechanisms during plant domestication",
-        "new_articles": 0,
+        "new_articles": 7,
         "total_articles": 7
       }
     },
@@ -24,17 +24,17 @@
       "parameter_name": "jeb.biologists.org.2019",
       "info": {
         "last_title": "Transplanting gravid lizards to high elevation alters maternal and embryonic oxygen physiology, but not reproductive success or hatchling phenotype [RESEARCH ARTICLE]",
-        "new_articles": 0,
-        "total_articles": 67
+        "new_articles": 49,
+        "total_articles": 49
       }
     },
     {
       "rss_url": "http://www.sciencemag.org/rss/news_current.xml",
       "parameter_name": "sciencemag.org",
       "info": {
-        "last_title": "Top stories: Jobs just for women, fish losing their senses, and the evolution of puppy dog eyes",
-        "new_articles": 0,
-        "total_articles": 53
+        "last_title": "",
+        "new_articles": 10,
+        "total_articles": 10
       }
     },
     {
@@ -42,8 +42,8 @@
       "parameter_name": "scientificamerican.com",
       "info": {
         "last_title": "Virtual Reality Might Be the Next Big Thing for Mental Health",
-        "new_articles": 2,
-        "total_articles": 136
+        "new_articles": 25,
+        "total_articles": 25
       }
     }
   ],

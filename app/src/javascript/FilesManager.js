@@ -7,27 +7,36 @@
 const fs = require('fs');
 const path = require('path');
 const app = require('electron').remote.app;
+
 /**
  * Production :
  * const scraper_param_path = './resources/conf/HTMLscraper.json';
  * const rss_param_path = './resources/conf/RSSreader.json';
- **/
-const scraper_param_path = './resources/conf/HTMLscraper.json';
-const rss_param_path = './resources/conf/RSSreader.json';
-
-/**
- * Production :
- * const scraped_folder = '/resources/scraped';
+ * 
+ * const scraped_folder = '../../resources/scraped';
  * const archive_path = './resources/scraped/archive/';
  * const rss_path = './resources/scraped/rss/';
+ **/
+
+/**
+ * Developpement :
+ * const scraper_param_path = './app/conf/HTMLscraper.json';
+ * const rss_param_path = './app/conf/RSSreader.json';
+ * 
+ * const scraped_folder = '/ressources/scraped';
+ * const archive_path = './ressources/scraped/archive/';
+ * const rss_path = './ressources/scraped/rss/';
  */
-const scraped_folder = '/resources/scraped';
-const archive_path = './resources/scraped/archive/';
-const rss_path = './resources/scraped/rss/';
+
+const scraper_param_path = './app/conf/HTMLscraper.json';
+const rss_param_path = './app/conf/RSSreader.json';
+const scraped_folder = '/ressources/scraped';
+const archive_path = './ressources/scraped/archive/';
+const rss_path = './ressources/scraped/rss/';
 
 module.exports = {
     openScrapedFolder: function() {
-        require('child_process').exec('start "" "'+ path.join(app.getAppPath(), '../../' + scraped_folder) +'"');
+        require('child_process').exec('start "" "'+ path.join(app.getAppPath(), scraped_folder) +'"');
     },
     param: {
         scrape: readJSONFile(scraper_param_path),

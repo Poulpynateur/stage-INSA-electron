@@ -21,8 +21,6 @@ function showWindow() {
     
         mainWindow.loadFile('./app/src/index.html');
 
-        mainWindow.toggleDevTools();
-
         mainWindow.on('minimize',function(event){
             event.preventDefault();
             mainWindow.hide();
