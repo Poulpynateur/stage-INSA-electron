@@ -1,4 +1,9 @@
+# Interface for data scraping
+
+Interface for data scraping on scientific web sites.
 Based on [ELECTRON](https://electronjs.org/).
+
+![preview](preview.PNG)
 
 ## Getting Started
 
